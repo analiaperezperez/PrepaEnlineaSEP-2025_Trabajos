@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabajos Prepa en Línea</title>
-    <meta name="description" content="Índice de trabajos publicados de Prepa en Línea SEP.">
+    <title>Portafolio Prepa en Línea</title>
+    <meta name="description" content="Portafolio de trabajos publicados de Prepa en Línea SEP.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --fondo: #f6f1e7;
@@ -15,8 +15,13 @@
             --tinta: #2b2622;
             --suave: #6b6157;
             --verde: #1f5f4a;
+            --verde-osc: #173f33;
             --verde-claro: #e3efe9;
+            --rojo: #a83a2a;
+            --ocre: #c48a2c;
             --linea: #e2d8c6;
+            --sombra: 0 6px 24px rgba(60, 40, 20, 0.08);
+            --sombra-hover: 0 14px 36px rgba(60, 40, 20, 0.16);
         }
         * { box-sizing: border-box; }
         body {
@@ -26,118 +31,370 @@
             font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
             line-height: 1.5;
         }
-        .contenedor { max-width: 880px; margin: 0 auto; padding: 40px 16px 64px; }
-        header { margin-bottom: 32px; }
-        h1 {
-            font-family: 'Fraunces', Georgia, serif;
-            font-size: clamp(1.8em, 5vw, 2.6em);
-            margin: 0 0 6px;
-            color: var(--verde);
+        a { color: inherit; }
+
+        /* ---------- Encabezado ---------- */
+        .hero {
+            color: #fff;
+            background:
+                linear-gradient(90deg, var(--verde) 0 33.3%, #fff 33.3% 66.6%, var(--rojo) 66.6%) top / 100% 6px no-repeat,
+                radial-gradient(circle at 85% 20%, rgba(255,255,255,0.10), transparent 40%),
+                linear-gradient(160deg, var(--verde-osc) 0%, var(--verde) 60%, #2c7a60 100%);
+            padding: 56px 16px 88px;
         }
-        header p { margin: 0; color: var(--suave); }
-        .buscar {
-            width: 100%;
-            margin-top: 20px;
-            padding: 12px 16px;
-            font: inherit;
-            border: 1px solid var(--linea);
-            border-radius: 10px;
-            background: var(--tarjeta);
-        }
-        h2 {
-            font-size: 0.85em;
+        .ancho { max-width: 1080px; margin: 0 auto; }
+        .etiqueta {
+            display: inline-block;
+            padding: 4px 14px;
+            border: 1px solid rgba(255,255,255,0.45);
+            border-radius: 999px;
+            font-size: 0.78em;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--suave);
-            margin: 32px 0 12px;
         }
-        .trabajo {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 12px 16px;
-            padding: 18px 20px;
-            margin-bottom: 12px;
+        .hero h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 800;
+            font-size: clamp(2.1em, 6vw, 3.4em);
+            line-height: 1.05;
+            margin: 16px 0 10px;
+        }
+        .hero p { margin: 0; max-width: 560px; font-size: 1.1em; opacity: 0.9; }
+
+        /* ---------- Resumen ---------- */
+        .resumen {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: -52px auto 0;
+            position: relative;
+        }
+        .stat {
             background: var(--tarjeta);
             border: 1px solid var(--linea);
-            border-left: 5px solid var(--verde);
-            border-radius: 12px;
+            border-radius: 14px;
+            padding: 16px 18px;
+            box-shadow: var(--sombra);
         }
-        .info { flex: 1 1 320px; min-width: 0; }
-        .info a {
-            font-weight: 700;
-            font-size: 1.1em;
-            color: var(--tinta);
-            text-decoration: none;
-        }
-        .info a:hover { color: var(--verde); text-decoration: underline; }
-        .meta { font-size: 0.9em; color: var(--suave); }
-        .url {
+        .stat b {
             display: block;
-            margin-top: 4px;
-            font-family: ui-monospace, Consolas, monospace;
-            font-size: 0.78em;
-            color: var(--suave);
-            overflow-wrap: anywhere;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.9em;
+            line-height: 1.1;
+            color: var(--verde);
         }
-        .acciones { display: flex; gap: 8px; }
-        .btn {
-            padding: 8px 14px;
+        .stat span { font-size: 0.88em; color: var(--suave); }
+
+        /* ---------- Herramientas ---------- */
+        main { padding: 0 16px 64px; }
+        .herramientas { margin: 32px auto 8px; }
+        .buscar-caja { position: relative; }
+        .buscar-caja svg {
+            position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+            width: 18px; height: 18px; color: var(--suave);
+        }
+        .buscar {
+            width: 100%;
+            padding: 14px 16px 14px 46px;
+            font: inherit;
+            border: 1px solid var(--linea);
+            border-radius: 12px;
+            background: var(--tarjeta);
+            color: var(--tinta);
+        }
+        .buscar:focus { outline: 2px solid var(--verde); outline-offset: 1px; }
+        .filtros { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .chip {
+            padding: 6px 14px;
             font: inherit;
             font-size: 0.9em;
             font-weight: 600;
+            border-radius: 999px;
+            border: 1px solid var(--linea);
+            background: var(--tarjeta);
+            color: var(--suave);
+            cursor: pointer;
+        }
+        .chip:hover { border-color: var(--verde); color: var(--verde); }
+        .chip[aria-pressed="true"] { background: var(--verde); border-color: var(--verde); color: #fff; }
+
+        /* ---------- Módulos ---------- */
+        .modulo { margin-top: 40px; }
+        .modulo-cab {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+            border-bottom: 2px solid var(--linea);
+        }
+        .modulo-cab h2 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.7em;
+            margin: 0;
+        }
+        .modulo-cab .gen {
+            font-size: 0.8em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 2px 10px;
+            border-radius: 999px;
+            background: var(--verde-claro);
+            color: var(--verde);
+        }
+        .modulo-cab .cuenta { margin-left: auto; color: var(--suave); font-size: 0.9em; }
+        .actual { color: var(--rojo); font-size: 0.8em; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+
+        .rejilla {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        /* ---------- Tarjeta de trabajo ---------- */
+        .trabajo {
+            display: flex;
+            flex-direction: column;
+            background: var(--tarjeta);
+            border: 1px solid var(--linea);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .trabajo:hover { transform: translateY(-4px); box-shadow: var(--sombra-hover); }
+        .portada {
+            position: relative;
+            display: block;
+            height: 170px;
+            background: linear-gradient(135deg, var(--verde), #2c7a60);
+            overflow: hidden;
+        }
+        .portada img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            filter: sepia(0.2);
+            transition: transform .4s ease;
+        }
+        .trabajo:hover .portada img { transform: scale(1.05); }
+        .portada .sin-img {
+            display: flex; align-items: center; justify-content: center; height: 100%;
+            font-family: 'Fraunces', Georgia, serif; font-size: 3em; color: rgba(255,255,255,0.35);
+        }
+        .tipo {
+            position: absolute; top: 12px; left: 12px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(23, 63, 51, 0.88);
+            color: #fff;
+            font-size: 0.75em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .cuerpo { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; flex: 1; }
+        .materia {
+            font-size: 0.78em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ocre);
+        }
+        .cuerpo h3 {
+            margin: 0;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.25em;
+            line-height: 1.25;
+        }
+        .cuerpo h3 a { text-decoration: none; }
+        .cuerpo h3 a:hover { color: var(--verde); text-decoration: underline; }
+        .semana { display: flex; align-items: center; gap: 6px; font-size: 0.9em; color: var(--suave); }
+        .semana svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+        .enlace {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding: 8px 10px;
             border-radius: 8px;
+            background: var(--fondo);
+            border: 1px solid var(--linea);
+            font-family: ui-monospace, Consolas, monospace;
+            font-size: 0.76em;
+            color: var(--verde);
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+        .enlace:hover { border-color: var(--verde); text-decoration: underline; }
+        .enlace svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+        .acciones { display: flex; gap: 8px; margin-top: auto; padding-top: 12px; }
+        .btn {
+            flex: 1;
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            padding: 10px 14px;
+            font: inherit;
+            font-size: 0.92em;
+            font-weight: 700;
+            border-radius: 10px;
             cursor: pointer;
             text-decoration: none;
             border: 1px solid var(--verde);
+            transition: background .15s ease;
         }
+        .btn svg { width: 16px; height: 16px; }
         .btn.copiar { background: var(--verde); color: #fff; }
+        .btn.copiar:hover { background: var(--verde-osc); }
         .btn.copiar.ok { background: #2e7d32; border-color: #2e7d32; }
         .btn.abrir { background: transparent; color: var(--verde); }
-        .vacio { color: var(--suave); text-align: center; padding: 24px; }
-        footer { margin-top: 48px; font-size: 0.85em; color: var(--suave); text-align: center; }
+        .btn.abrir:hover { background: var(--verde-claro); }
+
+        .vacio {
+            margin-top: 40px;
+            padding: 40px 16px;
+            text-align: center;
+            color: var(--suave);
+            border: 2px dashed var(--linea);
+            border-radius: 16px;
+        }
+
+        /* ---------- Aviso de copiado ---------- */
+        .toast {
+            position: fixed; left: 50%; bottom: 24px;
+            transform: translate(-50%, 120px);
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: var(--tinta);
+            color: #fff;
+            font-weight: 600;
+            box-shadow: var(--sombra-hover);
+            transition: transform .25s ease;
+            max-width: calc(100% - 32px);
+        }
+        .toast.ver { transform: translate(-50%, 0); }
+
+        footer {
+            padding: 28px 16px;
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--suave);
+            border-top: 1px solid var(--linea);
+        }
+
+        @media (max-width: 720px) {
+            .hero { padding: 44px 16px 80px; }
+            .resumen { grid-template-columns: repeat(2, 1fr); }
+            .rejilla { grid-template-columns: 1fr; }
+            .modulo-cab .cuenta { margin-left: 0; width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; }
+        }
     </style>
 </head>
 <body>
-    <div class="contenedor">
-        <header>
-            <h1>Mis trabajos · Prepa en Línea SEP</h1>
-            <p>Selecciona un trabajo para verlo o copia su enlace para entregarlo en la plataforma.</p>
-            <input class="buscar" type="search" id="buscar" placeholder="Buscar por título, materia, módulo o semana…" aria-label="Buscar trabajo">
-        </header>
+    <header class="hero">
+        <div class="ancho">
+            <span class="etiqueta">Prepa en Línea SEP</span>
+            <h1>Portafolio de trabajos</h1>
+            <p>Todas mis actividades publicadas, organizadas por módulo y semana. Abre un trabajo o copia su enlace para entregarlo en la plataforma.</p>
+        </div>
+    </header>
 
-        <div id="lista"></div>
+    <main>
+        <section class="ancho resumen" id="resumen" aria-label="Resumen"></section>
 
-        <footer>Actualizado automáticamente desde GitHub Pages.</footer>
-    </div>
+        <section class="ancho herramientas">
+            <div class="buscar-caja">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input class="buscar" type="search" id="buscar" placeholder="Buscar por título, materia, módulo o semana…" aria-label="Buscar trabajo">
+            </div>
+            <div class="filtros" id="filtros" role="group" aria-label="Filtrar por materia"></div>
+        </section>
+
+        <div class="ancho" id="lista"></div>
+    </main>
+
+    <footer>Portafolio publicado con GitHub Pages · Prepa en Línea SEP</footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script>
         // ===== Para agregar un trabajo nuevo, copia un bloque { ... } y cambia los datos =====
         // Estructura de carpetas: Modulo_<N>_G<generación>/Semana_<N>_<días>-<mes>/archivo.html  (imágenes en Recursos/)
         // "ruta" es la ubicación del archivo dentro del repositorio (respeta mayúsculas y minúsculas).
+        // "portada" (opcional) es una imagen para la miniatura de la tarjeta.
         const TRABAJOS = [
             {
-                titulo: "Infografía: El Cardenismo en México (1934-1940)",
+                titulo: "El Cardenismo en México (1934-1940)",
+                tipo: "Infografía",
                 materia: "Historia de México",
                 semana: "Semana 3 · 12 al 18 de octubre 2026",
                 modulo: 9,
                 generacion: "G82",
-                ruta: "Modulo_9_G82/Semana_3_12-18_octubre/infografia.html"
+                ruta: "Modulo_9_G82/Semana_3_12-18_octubre/infografia.html",
+                portada: "Modulo_9_G82/Semana_3_12-18_octubre/Recursos/cardenas-campesinos.jpg"
             },
         ];
 
-        const base = location.href.replace(/[^/]*$/, "");  // carpeta donde está este index
+        const ICONOS = {
+            copiar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>',
+            abrir: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>',
+            enlace: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>',
+            calendario: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'
+        };
+
+        const base = location.href.replace(/[?#].*$/, "").replace(/[^/]*$/, "");  // carpeta donde está este index
         const lista = document.getElementById("lista");
+        const toast = document.getElementById("toast");
+        const moduloActual = Math.max(...TRABAJOS.map(t => t.modulo));
+        let materiaActiva = "Todas";
 
-        function urlCompleta(ruta) {
-            return new URL(ruta, base).href;
+        const urlCompleta = ruta => new URL(ruta, base).href;
+        const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+        // ----- Resumen -----
+        const materias = [...new Set(TRABAJOS.map(t => t.materia))].sort();
+        document.getElementById("resumen").innerHTML = [
+            [TRABAJOS.length, TRABAJOS.length === 1 ? "trabajo publicado" : "trabajos publicados"],
+            ...(n => [[n, n === 1 ? "módulo" : "módulos"]])(new Set(TRABAJOS.map(t => t.modulo)).size),
+            [materias.length, materias.length === 1 ? "materia" : "materias"],
+            [moduloActual, "módulo actual"]
+        ].map(([n, txt]) => `<div class="stat"><b>${esc(n)}</b><span>${esc(txt)}</span></div>`).join("");
+
+        // ----- Filtros por materia -----
+        const filtros = document.getElementById("filtros");
+        ["Todas", ...materias].forEach(m => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "chip";
+            b.textContent = m;
+            b.setAttribute("aria-pressed", m === materiaActiva);
+            b.addEventListener("click", () => {
+                materiaActiva = m;
+                filtros.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b));
+                pintar();
+            });
+            filtros.appendChild(b);
+        });
+        if (materias.length < 2) filtros.hidden = true;
+
+        // ----- Copiar enlace -----
+        function avisar(msg) {
+            toast.textContent = msg;
+            toast.classList.add("ver");
+            clearTimeout(avisar.t);
+            avisar.t = setTimeout(() => toast.classList.remove("ver"), 2000);
         }
-
         function copiar(texto, boton) {
             const listo = () => {
-                boton.textContent = "¡Copiado!";
+                boton.innerHTML = ICONOS.copiar + "¡Copiado!";
                 boton.classList.add("ok");
-                setTimeout(() => { boton.textContent = "Copiar enlace"; boton.classList.remove("ok"); }, 1800);
+                avisar("Enlace copiado. Ya puedes pegarlo en la plataforma.");
+                setTimeout(() => { boton.innerHTML = ICONOS.copiar + "Copiar enlace"; boton.classList.remove("ok"); }, 1800);
             };
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(texto).then(listo, () => respaldo(texto, listo));
@@ -155,46 +412,66 @@
             t.remove();
         }
 
-        function pintar(filtro = "") {
-            const f = filtro.trim().toLowerCase();
+        // ----- Lista -----
+        function tarjeta(t) {
+            const url = urlCompleta(t.ruta);
+            const portada = t.portada
+                ? `<img src="${esc(t.portada)}" alt="" loading="lazy">`
+                : `<div class="sin-img">${esc((t.tipo || t.materia).charAt(0))}</div>`;
+            const art = document.createElement("article");
+            art.className = "trabajo";
+            art.innerHTML = `
+                <a class="portada" href="${esc(url)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    ${portada}
+                    ${t.tipo ? `<span class="tipo">${esc(t.tipo)}</span>` : ""}
+                </a>
+                <div class="cuerpo">
+                    <span class="materia">${esc(t.materia)}</span>
+                    <h3><a href="${esc(url)}" target="_blank" rel="noopener">${esc(t.titulo)}</a></h3>
+                    <span class="semana">${ICONOS.calendario}${esc(t.semana)}</span>
+                    <a class="enlace" href="${esc(url)}" target="_blank" rel="noopener" title="Abrir en una pestaña nueva">${ICONOS.enlace}<span>${esc(url)}</span></a>
+                    <div class="acciones">
+                        <button class="btn copiar" type="button">${ICONOS.copiar}Copiar enlace</button>
+                        <a class="btn abrir" href="${esc(url)}" target="_blank" rel="noopener">${ICONOS.abrir}Abrir</a>
+                    </div>
+                </div>`;
+            art.querySelector(".copiar").addEventListener("click", e => copiar(url, e.currentTarget));
+            return art;
+        }
+
+        function pintar() {
+            const f = document.getElementById("buscar").value.trim().toLowerCase();
             const visibles = TRABAJOS.filter(t =>
-                [t.titulo, t.materia, t.semana, "módulo " + t.modulo, t.generacion].join(" ").toLowerCase().includes(f)
+                (materiaActiva === "Todas" || t.materia === materiaActiva) &&
+                [t.titulo, t.tipo, t.materia, t.semana, "módulo " + t.modulo, "modulo " + t.modulo, t.generacion]
+                    .join(" ").toLowerCase().includes(f)
             );
             lista.innerHTML = "";
             if (!visibles.length) {
-                lista.innerHTML = '<p class="vacio">No se encontraron trabajos.</p>';
+                lista.innerHTML = '<p class="vacio">No se encontraron trabajos con esa búsqueda.</p>';
                 return;
             }
             const grupos = {};
             visibles.forEach(t => (grupos[t.modulo] ||= []).push(t));
-            Object.keys(grupos).sort((a, b) => b - a).forEach(g => {
-                const h = document.createElement("h2");
-                h.textContent = `Módulo ${g} · ${grupos[g][0].generacion}`;
-                lista.appendChild(h);
-                grupos[g].slice().reverse().forEach(t => {
-                    const url = urlCompleta(t.ruta);
-                    const div = document.createElement("div");
-                    div.className = "trabajo";
-                    div.innerHTML = `
-                        <div class="info">
-                            <a href="${t.ruta}" target="_blank" rel="noopener"></a>
-                            <div class="meta"></div>
-                            <span class="url"></span>
-                        </div>
-                        <div class="acciones">
-                            <button class="btn copiar" type="button">Copiar enlace</button>
-                            <a class="btn abrir" href="${t.ruta}" target="_blank" rel="noopener">Abrir</a>
-                        </div>`;
-                    div.querySelector(".info a").textContent = t.titulo;
-                    div.querySelector(".meta").textContent = `${t.materia} · ${t.semana}`;
-                    div.querySelector(".url").textContent = url;
-                    div.querySelector(".copiar").addEventListener("click", e => copiar(url, e.currentTarget));
-                    lista.appendChild(div);
-                });
+            Object.keys(grupos).sort((a, b) => b - a).forEach(m => {
+                const items = grupos[m];
+                const sec = document.createElement("section");
+                sec.className = "modulo";
+                sec.innerHTML = `
+                    <div class="modulo-cab">
+                        <h2>Módulo ${esc(m)}</h2>
+                        <span class="gen">${esc(items[0].generacion)}</span>
+                        ${+m === moduloActual ? '<span class="actual">● En curso</span>' : ""}
+                        <span class="cuenta">${items.length} ${items.length === 1 ? "trabajo" : "trabajos"}</span>
+                    </div>
+                    <div class="rejilla"></div>`;
+                const rejilla = sec.querySelector(".rejilla");
+                items.slice().reverse().forEach(t => rejilla.appendChild(tarjeta(t)));
+                lista.appendChild(sec);
             });
         }
 
-        document.getElementById("buscar").addEventListener("input", e => pintar(e.target.value));
+        document.getElementById("buscar").addEventListener("input", pintar);
         pintar();
     </script>
 </body>
