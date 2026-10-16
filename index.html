@@ -103,7 +103,7 @@
         <header>
             <h1>Mis trabajos · Prepa en Línea SEP</h1>
             <p>Selecciona un trabajo para verlo o copia su enlace para entregarlo en la plataforma.</p>
-            <input class="buscar" type="search" id="buscar" placeholder="Buscar por título, módulo o semana…" aria-label="Buscar trabajo">
+            <input class="buscar" type="search" id="buscar" placeholder="Buscar por título, materia, módulo o semana…" aria-label="Buscar trabajo">
         </header>
 
         <div id="lista"></div>
@@ -113,14 +113,16 @@
 
     <script>
         // ===== Para agregar un trabajo nuevo, copia un bloque { ... } y cambia los datos =====
+        // Estructura de carpetas: Modulo_<N>_G<generación>/Semana_<N>_<días>-<mes>/archivo.html  (imágenes en Recursos/)
         // "ruta" es la ubicación del archivo dentro del repositorio (respeta mayúsculas y minúsculas).
         const TRABAJOS = [
             {
                 titulo: "Infografía: El Cardenismo en México (1934-1940)",
-                materia: "Historia de México · Módulo 9",
+                materia: "Historia de México",
                 semana: "Semana 3 · 12 al 18 de octubre 2026",
-                grupo: "2026",
-                ruta: "2026/Semana_3-12-18_Octubre/infografia.html"
+                modulo: 9,
+                generacion: "G82",
+                ruta: "Modulo_9_G82/Semana_3_12-18_octubre/infografia.html"
             },
         ];
 
@@ -156,7 +158,7 @@
         function pintar(filtro = "") {
             const f = filtro.trim().toLowerCase();
             const visibles = TRABAJOS.filter(t =>
-                [t.titulo, t.materia, t.semana, t.grupo].join(" ").toLowerCase().includes(f)
+                [t.titulo, t.materia, t.semana, "módulo " + t.modulo, t.generacion].join(" ").toLowerCase().includes(f)
             );
             lista.innerHTML = "";
             if (!visibles.length) {
@@ -164,10 +166,10 @@
                 return;
             }
             const grupos = {};
-            visibles.forEach(t => (grupos[t.grupo] ||= []).push(t));
-            Object.keys(grupos).sort().reverse().forEach(g => {
+            visibles.forEach(t => (grupos[t.modulo] ||= []).push(t));
+            Object.keys(grupos).sort((a, b) => b - a).forEach(g => {
                 const h = document.createElement("h2");
-                h.textContent = g;
+                h.textContent = `Módulo ${g} · ${grupos[g][0].generacion}`;
                 lista.appendChild(h);
                 grupos[g].slice().reverse().forEach(t => {
                     const url = urlCompleta(t.ruta);
