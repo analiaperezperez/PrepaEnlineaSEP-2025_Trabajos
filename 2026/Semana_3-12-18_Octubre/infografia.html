@@ -3,174 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía: El Cardenismo (1934-1940)</title>
+    <title>El Cardenismo (1934-1940)</title>
+    <meta name="description" content="Infografía sobre el Cardenismo en México: contexto posrevolucionario, reforma agraria y expropiación petrolera.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --papel: #f6f1e7;
+            --tarjeta: #fffdf8;
+            --tinta: #2b2622;
+            --tinta-suave: #5e554c;
+            --verde: #1f5f4a;
+            --verde-claro: #e3efe9;
+            --rojo: #a83a2a;
+            --rojo-claro: #f6e3df;
+            --ocre: #c48a2c;
+            --ocre-claro: #f7ecd6;
+            --linea: #e2d8c6;
+            --radio: 14px;
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
             margin: 0;
-            padding: 20px;
-            line-height: 1.5;
+            padding: 24px 16px 48px;
+            background: var(--papel);
+            color: var(--tinta);
+            font-family: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
         }
         .infografia {
-            max-width: 1000px;
+            max-width: 1040px;
             margin: 0 auto;
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: var(--tarjeta);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(60, 40, 20, 0.12);
             overflow: hidden;
         }
+
+        /* ---------- Encabezado ---------- */
         .header {
-            background: linear-gradient(135deg, #6a1b9a, #ab47bc);
-            color: white;
+            position: relative;
+            padding: 48px 32px 40px;
             text-align: center;
-            padding: 30px 20px;
+            color: #fff;
+            background:
+                linear-gradient(90deg, var(--verde) 0 33.3%, #fff 33.3% 66.6%, var(--rojo) 66.6%) top / 100% 8px no-repeat,
+                linear-gradient(160deg, #173f33 0%, var(--verde) 55%, #2c7a60 100%);
+        }
+        .header .etiqueta {
+            display: inline-block;
+            padding: 4px 14px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 999px;
+            font-size: 0.8em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
         .header h1 {
-            margin: 0;
-            font-size: 2.2em;
-            letter-spacing: 1px;
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 800;
+            font-size: clamp(2em, 5vw, 3.2em);
+            line-height: 1.1;
+            margin: 16px 0 8px;
         }
-        .header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
-            opacity: 0.9;
+        .header .subtitulo {
+            margin: 0 auto;
+            max-width: 620px;
+            font-size: 1.15em;
+            opacity: 0.92;
         }
-        .contenido {
-            padding: 20px;
+        .datos {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
             justify-content: center;
+            gap: 12px;
+            margin-top: 28px;
+        }
+        .dato {
+            min-width: 150px;
+            padding: 12px 18px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 12px;
+        }
+        .dato strong {
+            display: block;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.6em;
+            line-height: 1.1;
+        }
+        .dato span { font-size: 0.85em; opacity: 0.9; }
+
+        /* ---------- Línea del tiempo ---------- */
+        .linea-tiempo {
+            padding: 32px 32px 8px;
+        }
+        .linea-tiempo h2, .seccion-titulo {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.5em;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        .tiempo {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            position: relative;
+        }
+        .tiempo::before {
+            content: "";
+            position: absolute;
+            top: 9px; left: 8%; right: 8%;
+            height: 3px;
+            background: var(--linea);
+        }
+        .tiempo li {
+            position: relative;
+            text-align: center;
+            padding: 0 6px;
+            font-size: 0.88em;
+            color: var(--tinta-suave);
+        }
+        .tiempo li::before {
+            content: "";
+            display: block;
+            width: 20px; height: 20px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            background: var(--tarjeta);
+            border: 4px solid var(--verde);
+            position: relative;
+        }
+        .tiempo li.clave::before { border-color: var(--rojo); background: var(--rojo); }
+        .tiempo b {
+            display: block;
+            font-size: 1.15em;
+            color: var(--tinta);
+        }
+
+        /* ---------- Tarjetas ---------- */
+        .contenido {
+            padding: 24px 32px 32px;
+            display: grid;
+            gap: 24px;
         }
         .tarjeta {
-            background: #fafafa;
-            border-left: 5px solid #6a1b9a;
-            border-radius: 8px;
-            padding: 20px;
-            flex: 1 1 400px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 28px;
+            padding: 24px;
+            background: #fff;
+            border: 1px solid var(--linea);
+            border-radius: var(--radio);
+            border-top: 6px solid var(--color, var(--verde));
         }
-        .tarjeta h2 {
-            color: #6a1b9a;
-            margin-top: 0;
-            font-size: 1.5em;
-            border-bottom: 2px dashed #ce93d8;
-            padding-bottom: 10px;
-        }
+        .tarjeta.agraria { --color: var(--ocre); --fondo: var(--ocre-claro); }
+        .tarjeta.petroleo { --color: var(--rojo); --fondo: var(--rojo-claro); }
+        .tarjeta.contexto { --color: var(--verde); --fondo: var(--verde-claro); }
+
+        .tarjeta figure { margin: 0; }
         .tarjeta img {
             width: 100%;
-            height: 200px;
+            height: 340px;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border: 2px solid #e1bee7;
+            object-position: center top;
+            border-radius: 10px;
+            filter: sepia(0.15);
+            display: block;
         }
-        .tarjeta ul {
-            padding-left: 20px;
-            flex-grow: 1;
+        .tarjeta figcaption {
+            font-size: 0.8em;
+            color: var(--tinta-suave);
+            margin-top: 8px;
+            font-style: italic;
         }
-        .tarjeta li {
-            margin-bottom: 10px;
+        .numero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: var(--color);
+            color: #fff;
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 800;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .tarjeta h2 {
+            display: flex;
+            align-items: center;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.55em;
+            line-height: 1.2;
+            color: var(--color);
+            margin: 0 0 12px;
+        }
+        .tarjeta .intro { margin: 0 0 16px; }
+        .puntos {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .puntos li {
+            padding: 12px 14px;
+            background: var(--fondo);
+            border-radius: 10px;
+        }
+        .puntos li strong {
+            display: block;
+            color: var(--color);
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .destacado {
+            margin: 16px 0 0;
+            padding: 12px 16px;
+            border-left: 4px solid var(--color);
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.05em;
         }
         .referencia {
+            grid-column: 1 / -1;
             font-size: 0.8em;
-            color: #666;
-            background-color: #f0f0f0;
-            padding: 8px 12px;
-            border-radius: 5px;
-            margin-top: 15px;
-            border-left: 3px solid #ab47bc;
+            color: var(--tinta-suave);
+            border-top: 1px dashed var(--linea);
+            padding-top: 12px;
         }
-        .referencia p {
-            margin: 5px 0;
+        .referencia p { margin: 4px 0; padding-left: 2em; text-indent: -2em; }
+
+        /* ---------- Organizaciones ---------- */
+        .instituciones {
+            padding: 8px 32px 32px;
         }
-        .footer {
+        .grid-inst {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .inst {
+            padding: 18px;
+            background: var(--papel);
+            border-radius: 12px;
             text-align: center;
-            padding: 15px;
-            background: #e1bee7;
-            color: #4a148c;
-            font-size: 0.9em;
         }
-        @media (max-width: 600px) {
-            .header h1 { font-size: 1.5em; }
-            .contenido { padding: 10px; }
-            .tarjeta { padding: 15px; }
-            .tarjeta img { height: 150px; }
+        .inst b {
+            display: block;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.6em;
+            color: var(--verde);
+        }
+        .inst small { display: block; color: var(--tinta-suave); font-weight: 600; }
+        .inst p { margin: 8px 0 0; font-size: 0.92em; }
+
+        /* ---------- Pie ---------- */
+        .footer {
+            padding: 24px 32px;
+            background: #173f33;
+            color: #e8efe9;
+            font-size: 0.88em;
+            text-align: center;
+        }
+        .footer p { margin: 4px 0; }
+
+        /* ---------- Responsivo ---------- */
+        @media (max-width: 760px) {
+            body { padding: 12px 8px 32px; font-size: 16px; }
+            .header { padding: 40px 20px 32px; }
+            .linea-tiempo, .contenido, .instituciones { padding-left: 16px; padding-right: 16px; }
+            .tarjeta { grid-template-columns: 1fr; padding: 18px; gap: 18px; }
+            .tarjeta img { height: 240px; }
+            .tiempo { grid-template-columns: 1fr; gap: 14px; text-align: left; }
+            .tiempo::before { top: 0; bottom: 0; left: 9px; right: auto; width: 3px; height: auto; }
+            .tiempo li { display: flex; gap: 12px; text-align: left; padding: 0; }
+            .tiempo li::before { margin: 0; flex-shrink: 0; }
+            .tiempo b { display: inline; margin-right: 6px; }
+        }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .infografia { box-shadow: none; }
+            .tarjeta { break-inside: avoid; }
         }
     </style>
 </head>
 <body>
 
-    <div class="infografia">
-        <div class="header">
+    <main class="infografia">
+        <header class="header">
+            <span class="etiqueta">Historia de México · Módulo 9</span>
             <h1>El Cardenismo en México</h1>
-            <p>Institucionalización y movimientos sociales (1934-1940)</p>
-        </div>
+            <p class="subtitulo">Institucionalización y movimientos sociales durante el gobierno de Lázaro Cárdenas (1934-1940)</p>
+            <div class="datos">
+                <div class="dato"><strong>6 años</strong><span>de gobierno (sexenio)</span></div>
+                <div class="dato"><strong>≈18 millones</strong><span>de hectáreas repartidas</span></div>
+                <div class="dato"><strong>18/03/1938</strong><span>expropiación petrolera</span></div>
+            </div>
+        </header>
+
+        <section class="linea-tiempo" aria-label="Línea del tiempo">
+            <h2>Línea del tiempo</h2>
+            <ol class="tiempo">
+                <li><b>1934</b>Cárdenas asume la presidencia</li>
+                <li><b>1936</b>Expulsión de Calles y nace la CTM</li>
+                <li class="clave"><b>1936-37</b>Gran reparto agrario en La Laguna y Yucatán</li>
+                <li><b>1937</b>Nacionalización de los ferrocarriles</li>
+                <li class="clave"><b>1938</b>Expropiación petrolera y creación de PEMEX</li>
+                <li><b>1940</b>Termina el sexenio</li>
+            </ol>
+        </section>
 
         <div class="contenido">
 
             <!-- 1. Contexto Posrevolucionario -->
-            <div class="tarjeta">
-                <h2>1. El México después de la Revolución</h2>
-                <!-- IMAGEN 1: Lázaro Cárdenas -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Lazaro_Cardenas_1.jpg/640px-Lazaro_Cardenas_1.jpg" alt="Fotografía de Lázaro Cárdenas del Río">
-                <p>Cuando Lázaro Cárdenas llegó a la presidencia en 1934, el país aún estaba sanando las heridas de la Revolución Mexicana. Había muchos problemas:</p>
-                <ul>
-                    <li><strong>Retos políticos:</strong> El país necesitaba un gobierno fuerte que uniera a todos y evitara nuevos conflictos entre los distintos grupos revolucionarios.</li>
-                    <li><strong>Retos económicos:</strong> La mayoría de la riqueza estaba en manos de unos pocos, y el campo estaba muy abandonado. México dependía mucho de las empresas extranjeras.</li>
-                    <li><strong>Retos sociales:</strong> La mayoría de la gente era pobre, no sabía leer ni escribir, y los campesinos no tenían tierras propias.</li>
-                </ul>
-                <div class="referencia">
-                    <p><strong>Referencia de la imagen (APA):</strong> Archivo General de la Nación. (1934). <em>Lázaro Cárdenas del Río</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Lazaro_Cardenas_1.jpg</p>
-                    <p><strong>Referencia del texto (APA):</strong> Krauze, E. (1997). <em>Biografía del poder</em>. Tusquets Editores.</p>
+            <article class="tarjeta contexto">
+                <figure>
+                    <img src="img/lazaro-cardenas.jpg" alt="Retrato del general Lázaro Cárdenas del Río en 1937">
+                    <figcaption>General Lázaro Cárdenas del Río, 1937.</figcaption>
+                </figure>
+                <div>
+                    <h2><span class="numero">1</span>El México después de la Revolución</h2>
+                    <p class="intro">Cuando Lázaro Cárdenas llegó a la presidencia en 1934, el país aún estaba sanando las heridas de la Revolución Mexicana. Había muchos retos:</p>
+                    <ul class="puntos">
+                        <li><strong>Políticos</strong>El país necesitaba un gobierno fuerte que uniera a todos y evitara nuevos conflictos entre los grupos revolucionarios. Plutarco Elías Calles aún tenía mucho poder (el “Maximato”).</li>
+                        <li><strong>Económicos</strong>La mayoría de la riqueza estaba en manos de unos pocos, el campo estaba abandonado y México dependía mucho de las empresas extranjeras.</li>
+                        <li><strong>Sociales</strong>La mayoría de la gente era pobre, muchos no sabían leer ni escribir y los campesinos no tenían tierras propias.</li>
+                    </ul>
                 </div>
-            </div>
+                <div class="referencia">
+                    <p><strong>Imagen:</strong> Montero Torres, T. (1937). <em>General Lázaro Cárdenas del Río</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:General_L%C3%A1zaro_C%C3%A1rdenas_del_R%C3%ADo.jpg</p>
+                    <p><strong>Texto:</strong> Krauze, E. (1997). <em>Biografía del poder: Caudillos de la Revolución mexicana (1910-1940)</em>. Tusquets Editores.</p>
+                </div>
+            </article>
 
             <!-- 2. Reforma Agraria -->
-            <div class="tarjeta">
-                <h2>2. La Reforma Agraria</h2>
-                <!-- IMAGEN 2: Reparto agrario -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Reparto_agrario_en_M%C3%A9xico.jpg/640px-Reparto_agrario_en_M%C3%A9xico.jpg" alt="Campesinos recibiendo tierras durante el reparto agrario">
-                <p>Fue una de las medidas más importantes para cumplir con las promesas de la Revolución.</p>
-                <ul>
-                    <li><strong>Causas:</strong> Los campesinos vivían en la miseria y no tenían tierras. Las grandes haciendas controlaban casi todo el campo.</li>
-                    <li><strong>Acciones:</strong> El gobierno de Cárdenas repartió millones de hectáreas a los campesinos. Creó el <em>ejido</em>, que son tierras comunales que no se pueden vender.</li>
-                    <li><strong>Consecuencias:</strong> Los campesinos pudieron trabajar su propia tierra y mejorar su vida. Se creó el ejido como base de la propiedad rural en México.</li>
-                </ul>
-                <div class="referencia">
-                    <p><strong>Referencia de la imagen (APA):</strong> Casasola, A. (1936). <em>Reparto agrario en México</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Reparto_agrario_en_M%C3%A9xico.jpg</p>
-                    <p><strong>Referencia del texto (APA):</strong> Meyer, L., & Sherman, W. L. (1992). <em>El curso de la historia mexicana</em>. Oxford University Press.</p>
+            <article class="tarjeta agraria">
+                <figure>
+                    <img src="img/cardenas-campesinos.jpg" alt="Lázaro Cárdenas reunido con campesinos, alrededor de 1934" style="object-position:center">
+                    <figcaption>Lázaro Cárdenas con campesinos, ca. 1934.</figcaption>
+                </figure>
+                <div>
+                    <h2><span class="numero">2</span>La Reforma Agraria</h2>
+                    <p class="intro">Fue una de las medidas más importantes para cumplir con las promesas de la Revolución: “la tierra es de quien la trabaja”.</p>
+                    <ul class="puntos">
+                        <li><strong>Causas</strong>Los campesinos vivían en la miseria y no tenían tierras. Las grandes haciendas controlaban casi todo el campo.</li>
+                        <li><strong>Acciones</strong>El gobierno repartió cerca de 18 millones de hectáreas. Impulsó el <em>ejido</em>: tierras comunales que se trabajan en grupo y no se pueden vender.</li>
+                        <li><strong>Consecuencias</strong>Los campesinos pudieron trabajar su propia tierra y mejorar su vida. El ejido se volvió la base de la propiedad rural en México y en 1938 se creó la CNC para organizarlos.</li>
+                    </ul>
                 </div>
-            </div>
+                <div class="referencia">
+                    <p><strong>Imagen:</strong> Casasola, A. (ca. 1934). <em>Lázaro Cárdenas y campesinos</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:L%C3%A1zaro_C%C3%A1rdenas_y_campesinos.jpg</p>
+                    <p><strong>Texto:</strong> Meyer, M. C., &amp; Sherman, W. L. (1991). <em>The course of Mexican history</em> (4.ª ed.). Oxford University Press.</p>
+                </div>
+            </article>
 
             <!-- 3. Nacionalización del Petróleo -->
-            <div class="tarjeta">
-                <h2>3. La Nacionalización del Petróleo</h2>
-                <!-- IMAGEN 3: Expropiación petrolera -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Expropiaci%C3%B3n_petrolera.jpg/640px-Expropiaci%C3%B3n_petrolera.jpg" alt="Anuncio de la expropiación petrolera en 1938">
-                <p>El 18 de marzo de 1938, Cárdenas tomó una decisión histórica.</p>
-                <ul>
-                    <li><strong>Motivos:</strong> Las empresas extranjeras (como las de Estados Unidos e Inglaterra) explotaban el petróleo mexicano, pagaban muy poco a los trabajadores y no respetaban las leyes de México.</li>
-                    <li><strong>Desarrollo:</strong> Después de que las empresas se negaran a pagar mejores salarios, Cárdenas expropió todo el petróleo, pasando a ser propiedad de la nación.</li>
-                    <li><strong>Consecuencias:</strong> México recuperó el control de su riqueza. Se creó <strong>PEMEX</strong> para administrar el petróleo. Aunque hubo problemas con otros países, el pueblo mexicano se unió para pagar la deuda.</li>
-                </ul>
-                <div class="referencia">
-                    <p><strong>Referencia de la imagen (APA):</strong> Presidencia de la República. (1938). <em>Expropiación petrolera</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Expropiaci%C3%B3n_petrolera.jpg</p>
-                    <p><strong>Referencia del texto (APA):</strong> Cárdenas, L. (1972). <em>Obras: Apuntes 1913-1940</em>. UNAM.</p>
+            <article class="tarjeta petroleo">
+                <figure>
+                    <img src="img/decreto-expropiatorio.jpg" alt="Copia del decreto de expropiación petrolera del 18 de marzo de 1938">
+                    <figcaption>Decreto de expropiación petrolera, 18 de marzo de 1938.</figcaption>
+                </figure>
+                <div>
+                    <h2><span class="numero">3</span>La Nacionalización del Petróleo</h2>
+                    <p class="intro">El 18 de marzo de 1938, Cárdenas tomó una decisión histórica.</p>
+                    <ul class="puntos">
+                        <li><strong>Motivos</strong>Las empresas extranjeras (de Estados Unidos e Inglaterra) explotaban el petróleo mexicano, pagaban poco a los trabajadores y no respetaban las leyes de México.</li>
+                        <li><strong>Desarrollo</strong>Las compañías se negaron a obedecer a la Suprema Corte, que les ordenaba pagar mejores salarios. Entonces Cárdenas expropió sus bienes y el petróleo pasó a ser de la nación.</li>
+                        <li><strong>Consecuencias</strong>México recuperó el control de su riqueza y se creó <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:1em">PEMEX</strong> (junio de 1938). Hubo un boicot internacional, pero el pueblo se unió para ayudar a pagar la indemnización.</li>
+                    </ul>
+                    <p class="destacado">Cada 18 de marzo se conmemora el Día de la Expropiación Petrolera.</p>
                 </div>
+                <div class="referencia">
+                    <p><strong>Imagen:</strong> Gobierno de México. (1938). <em>Decreto expropiatorio</em> [Documento]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Decreto_Expropiatorio.jpg</p>
+                    <p><strong>Texto:</strong> Cárdenas, L. (1972). <em>Obras I: Apuntes 1913-1940</em>. Universidad Nacional Autónoma de México.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <section class="instituciones" aria-label="Institucionalización">
+            <h2 class="seccion-titulo">La institucionalización: organizar a la sociedad</h2>
+            <div class="grid-inst">
+                <div class="inst"><b>CTM</b><small>1936</small><p>Confederación de Trabajadores de México: unió a los obreros.</p></div>
+                <div class="inst"><b>CNC</b><small>1938</small><p>Confederación Nacional Campesina: organizó a los ejidatarios.</p></div>
+                <div class="inst"><b>PRM</b><small>1938</small><p>El PNR se transformó en Partido de la Revolución Mexicana, con sectores obrero, campesino, popular y militar.</p></div>
+                <div class="inst"><b>IPN</b><small>1936</small><p>Instituto Politécnico Nacional: educación técnica para el desarrollo del país.</p></div>
             </div>
+        </section>
 
-        </div>
-
-        <div class="footer">
-            <p>Infografía elaborada para la asignatura de Historia de México - Módulo 9, Semana 3.</p>
-            <p>Las imágenes y referencias utilizadas son de carácter educativo y de uso libre.</p>
-        </div>
-    </div>
+        <footer class="footer">
+            <p>Infografía elaborada para la asignatura de Historia de México · Módulo 9, Semana 3 · Prepa en Línea SEP.</p>
+            <p>Imágenes de dominio público obtenidas de Wikimedia Commons, usadas con fines educativos.</p>
+        </footer>
+    </main>
 
 </body>
 </html>

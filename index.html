@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajos Prepa en Línea</title>
+    <meta name="description" content="Índice de trabajos publicados de Prepa en Línea SEP.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fondo: #f6f1e7;
+            --tarjeta: #fffdf8;
+            --tinta: #2b2622;
+            --suave: #6b6157;
+            --verde: #1f5f4a;
+            --verde-claro: #e3efe9;
+            --linea: #e2d8c6;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--fondo);
+            color: var(--tinta);
+            font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+            line-height: 1.5;
+        }
+        .contenedor { max-width: 880px; margin: 0 auto; padding: 40px 16px 64px; }
+        header { margin-bottom: 32px; }
+        h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(1.8em, 5vw, 2.6em);
+            margin: 0 0 6px;
+            color: var(--verde);
+        }
+        header p { margin: 0; color: var(--suave); }
+        .buscar {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px 16px;
+            font: inherit;
+            border: 1px solid var(--linea);
+            border-radius: 10px;
+            background: var(--tarjeta);
+        }
+        h2 {
+            font-size: 0.85em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--suave);
+            margin: 32px 0 12px;
+        }
+        .trabajo {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px 16px;
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            background: var(--tarjeta);
+            border: 1px solid var(--linea);
+            border-left: 5px solid var(--verde);
+            border-radius: 12px;
+        }
+        .info { flex: 1 1 320px; min-width: 0; }
+        .info a {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--tinta);
+            text-decoration: none;
+        }
+        .info a:hover { color: var(--verde); text-decoration: underline; }
+        .meta { font-size: 0.9em; color: var(--suave); }
+        .url {
+            display: block;
+            margin-top: 4px;
+            font-family: ui-monospace, Consolas, monospace;
+            font-size: 0.78em;
+            color: var(--suave);
+            overflow-wrap: anywhere;
+        }
+        .acciones { display: flex; gap: 8px; }
+        .btn {
+            padding: 8px 14px;
+            font: inherit;
+            font-size: 0.9em;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            border: 1px solid var(--verde);
+        }
+        .btn.copiar { background: var(--verde); color: #fff; }
+        .btn.copiar.ok { background: #2e7d32; border-color: #2e7d32; }
+        .btn.abrir { background: transparent; color: var(--verde); }
+        .vacio { color: var(--suave); text-align: center; padding: 24px; }
+        footer { margin-top: 48px; font-size: 0.85em; color: var(--suave); text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <h1>Mis trabajos · Prepa en Línea SEP</h1>
+            <p>Selecciona un trabajo para verlo o copia su enlace para entregarlo en la plataforma.</p>
+            <input class="buscar" type="search" id="buscar" placeholder="Buscar por título, módulo o semana…" aria-label="Buscar trabajo">
+        </header>
+
+        <div id="lista"></div>
+
+        <footer>Actualizado automáticamente desde GitHub Pages.</footer>
+    </div>
+
+    <script>
+        // ===== Para agregar un trabajo nuevo, copia un bloque { ... } y cambia los datos =====
+        // "ruta" es la ubicación del archivo dentro del repositorio (respeta mayúsculas y minúsculas).
+        const TRABAJOS = [
+            {
+                titulo: "Infografía: El Cardenismo en México (1934-1940)",
+                materia: "Historia de México · Módulo 9",
+                semana: "Semana 3 · 12 al 18 de octubre 2026",
+                grupo: "2026",
+                ruta: "2026/Semana_3-12-18_Octubre/infografia.html"
+            },
+        ];
+
+        const base = location.href.replace(/[^/]*$/, "");  // carpeta donde está este index
+        const lista = document.getElementById("lista");
+
+        function urlCompleta(ruta) {
+            return new URL(ruta, base).href;
+        }
+
+        function copiar(texto, boton) {
+            const listo = () => {
+                boton.textContent = "¡Copiado!";
+                boton.classList.add("ok");
+                setTimeout(() => { boton.textContent = "Copiar enlace"; boton.classList.remove("ok"); }, 1800);
+            };
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(texto).then(listo, () => respaldo(texto, listo));
+            } else {
+                respaldo(texto, listo);
+            }
+        }
+        function respaldo(texto, listo) {
+            const t = document.createElement("textarea");
+            t.value = texto;
+            t.style.position = "fixed"; t.style.opacity = "0";
+            document.body.appendChild(t);
+            t.select();
+            try { document.execCommand("copy"); listo(); } catch (e) {}
+            t.remove();
+        }
+
+        function pintar(filtro = "") {
+            const f = filtro.trim().toLowerCase();
+            const visibles = TRABAJOS.filter(t =>
+                [t.titulo, t.materia, t.semana, t.grupo].join(" ").toLowerCase().includes(f)
+            );
+            lista.innerHTML = "";
+            if (!visibles.length) {
+                lista.innerHTML = '<p class="vacio">No se encontraron trabajos.</p>';
+                return;
+            }
+            const grupos = {};
+            visibles.forEach(t => (grupos[t.grupo] ||= []).push(t));
+            Object.keys(grupos).sort().reverse().forEach(g => {
+                const h = document.createElement("h2");
+                h.textContent = g;
+                lista.appendChild(h);
+                grupos[g].slice().reverse().forEach(t => {
+                    const url = urlCompleta(t.ruta);
+                    const div = document.createElement("div");
+                    div.className = "trabajo";
+                    div.innerHTML = `
+                        <div class="info">
+                            <a href="${t.ruta}" target="_blank" rel="noopener"></a>
+                            <div class="meta"></div>
+                            <span class="url"></span>
+                        </div>
+                        <div class="acciones">
+                            <button class="btn copiar" type="button">Copiar enlace</button>
+                            <a class="btn abrir" href="${t.ruta}" target="_blank" rel="noopener">Abrir</a>
+                        </div>`;
+                    div.querySelector(".info a").textContent = t.titulo;
+                    div.querySelector(".meta").textContent = `${t.materia} · ${t.semana}`;
+                    div.querySelector(".url").textContent = url;
+                    div.querySelector(".copiar").addEventListener("click", e => copiar(url, e.currentTarget));
+                    lista.appendChild(div);
+                });
+            });
+        }
+
+        document.getElementById("buscar").addEventListener("input", e => pintar(e.target.value));
+        pintar();
+    </script>
+</body>
+</html>
