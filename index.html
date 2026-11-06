@@ -145,6 +145,32 @@
         }
         .modulo-cab .cuenta { margin-left: auto; color: var(--suave); font-size: 0.9em; }
         .actual { color: var(--rojo); font-size: 0.8em; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .modulo-nombre { width: 100%; margin: 0; color: var(--suave); font-size: 1.05em; }
+
+        /* ---------- Avance de actividades ---------- */
+        .avance {
+            margin-bottom: 22px;
+            padding: 18px 20px;
+            background: var(--tarjeta);
+            border: 1px solid var(--linea);
+            border-radius: 16px;
+            box-shadow: var(--sombra);
+        }
+        .avance-cab { display: flex; justify-content: space-between; gap: 12px; font-weight: 700; font-size: 0.95em; }
+        .avance-cab span { color: var(--suave); font-weight: 600; }
+        .barra { height: 8px; margin: 10px 0 14px; border-radius: 999px; background: var(--verde-claro); overflow: hidden; }
+        .barra i { display: block; height: 100%; border-radius: inherit; background: var(--verde); }
+        .actividades { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 8px 20px; }
+        .actividades li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.93em; padding: 4px 0; }
+        .actividades .marca {
+            flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 50%; border: 2px solid var(--linea); color: #fff; font-size: 0.75em; font-weight: 800;
+        }
+        .actividades li.hecha .marca { background: var(--verde); border-color: var(--verde); }
+        .actividades li.pendiente { color: var(--suave); }
+        .actividades a { color: var(--verde); font-weight: 600; }
+        .sin-trabajos { margin: 0; padding: 20px; text-align: center; color: var(--suave); border: 2px dashed var(--linea); border-radius: 16px; }
 
         .rejilla {
             display: grid;
@@ -327,6 +353,32 @@
         // Estructura de carpetas: Modulo_<N>_G<generación>/Semana_<N>_<días>-<mes>/archivo.html  (imágenes en Recursos/)
         // "ruta" es la ubicación del archivo dentro del repositorio (respeta mayúsculas y minúsculas).
         // "portada" (opcional) es una imagen para la miniatura de la tarjeta.
+        // "actividad" (opcional) es el número de la actividad en la lista ACTIVIDADES del módulo; así se marca como hecha.
+
+        // ===== Módulos: agrega uno nuevo al inicio cuando empiece =====
+        // "actividades" (opcional) es la lista de la plataforma; se muestra como avance del módulo.
+        const MODULOS = [
+            {
+                modulo: 10,
+                generacion: "G82",
+                nombre: "Transformaciones en el mundo contemporáneo",
+                actividades: [
+                    "Actividad integradora 1. Transformaciones del mundo a inicios del siglo XX",
+                    "Actividad integradora 2. Periodo entreguerras",
+                    "Actividad integradora 3. Segunda Guerra Mundial y sus consecuencias",
+                    "Actividad integradora 4. Asia, África y Latinoamérica en el siglo XX",
+                    "Actividad integradora 5. Potencias y conflictos",
+                    "Actividad integradora 6. El mundo actual",
+                    "Proyecto Integrador. Un mundo en transformación: cambios y desafíos",
+                    "Foro de integración. Orígenes de la política mundial actual"
+                ]
+            },
+            {
+                modulo: 9,
+                generacion: "G82"
+            },
+        ];
+
         const TRABAJOS = [
             {
                 titulo: "El Cardenismo en México (1934-1940)",
@@ -350,7 +402,11 @@
         const base = location.href.replace(/[?#].*$/, "").replace(/[^/]*$/, "");  // carpeta donde está este index
         const lista = document.getElementById("lista");
         const toast = document.getElementById("toast");
-        const moduloActual = Math.max(...TRABAJOS.map(t => t.modulo));
+        TRABAJOS.forEach(t => {  // un módulo usado en TRABAJOS pero no listado en MODULOS se agrega solo
+            if (!MODULOS.some(m => m.modulo === t.modulo)) MODULOS.push({ modulo: t.modulo, generacion: t.generacion });
+        });
+        MODULOS.sort((a, b) => b.modulo - a.modulo);
+        const moduloActual = MODULOS[0].modulo;
         let materiaActiva = "Todas";
 
         const urlCompleta = ruta => new URL(ruta, base).href;
@@ -360,7 +416,7 @@
         const materias = [...new Set(TRABAJOS.map(t => t.materia))].sort();
         document.getElementById("resumen").innerHTML = [
             [TRABAJOS.length, TRABAJOS.length === 1 ? "trabajo publicado" : "trabajos publicados"],
-            ...(n => [[n, n === 1 ? "módulo" : "módulos"]])(new Set(TRABAJOS.map(t => t.modulo)).size),
+            [MODULOS.length, MODULOS.length === 1 ? "módulo" : "módulos"],
             [materias.length, materias.length === 1 ? "materia" : "materias"],
             [moduloActual, "módulo actual"]
         ].map(([n, txt]) => `<div class="stat"><b>${esc(n)}</b><span>${esc(txt)}</span></div>`).join("");
@@ -446,29 +502,53 @@
                 [t.titulo, t.tipo, t.materia, t.semana, "módulo " + t.modulo, "modulo " + t.modulo, t.generacion]
                     .join(" ").toLowerCase().includes(f)
             );
+            const filtrando = f !== "" || materiaActiva !== "Todas";
             lista.innerHTML = "";
-            if (!visibles.length) {
+            if (filtrando && !visibles.length) {
                 lista.innerHTML = '<p class="vacio">No se encontraron trabajos con esa búsqueda.</p>';
                 return;
             }
-            const grupos = {};
-            visibles.forEach(t => (grupos[t.modulo] ||= []).push(t));
-            Object.keys(grupos).sort((a, b) => b - a).forEach(m => {
-                const items = grupos[m];
+            MODULOS.forEach(mod => {
+                const m = mod.modulo;
+                const items = visibles.filter(t => t.modulo === m);
+                if (filtrando && !items.length) return;
+                const todos = TRABAJOS.filter(t => t.modulo === m);
                 const sec = document.createElement("section");
                 sec.className = "modulo";
                 sec.innerHTML = `
                     <div class="modulo-cab">
                         <h2>Módulo ${esc(m)}</h2>
-                        <span class="gen">${esc(items[0].generacion)}</span>
-                        ${+m === moduloActual ? '<span class="actual">● En curso</span>' : ""}
-                        <span class="cuenta">${items.length} ${items.length === 1 ? "trabajo" : "trabajos"}</span>
+                        <span class="gen">${esc(mod.generacion)}</span>
+                        ${m === moduloActual ? '<span class="actual">● En curso</span>' : ""}
+                        <span class="cuenta">${todos.length} ${todos.length === 1 ? "trabajo" : "trabajos"}</span>
+                        ${mod.nombre ? `<p class="modulo-nombre">${esc(mod.nombre)}</p>` : ""}
                     </div>
+                    ${!filtrando && mod.actividades ? avance(mod, todos) : ""}
                     <div class="rejilla"></div>`;
                 const rejilla = sec.querySelector(".rejilla");
-                items.slice().reverse().forEach(t => rejilla.appendChild(tarjeta(t)));
+                if (items.length) {
+                    items.slice().reverse().forEach(t => rejilla.appendChild(tarjeta(t)));
+                } else {
+                    rejilla.outerHTML = '<p class="sin-trabajos">Aún no hay trabajos publicados en este módulo.</p>';
+                }
                 lista.appendChild(sec);
             });
+        }
+
+        function avance(mod, todos) {
+            const hechas = mod.actividades.map((_, i) => todos.find(t => t.actividad === i + 1));
+            const n = hechas.filter(Boolean).length;
+            const pct = Math.round(n / mod.actividades.length * 100);
+            return `
+                <div class="avance">
+                    <div class="avance-cab">Avance del módulo <span>${n} de ${mod.actividades.length} · ${pct}%</span></div>
+                    <div class="barra" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="Avance del módulo ${esc(mod.modulo)}"><i style="width:${pct}%"></i></div>
+                    <ol class="actividades">
+                        ${mod.actividades.map((a, i) => hechas[i]
+                            ? `<li class="hecha"><span class="marca">✓</span><a href="${esc(urlCompleta(hechas[i].ruta))}" target="_blank" rel="noopener">${esc(a)}</a></li>`
+                            : `<li class="pendiente"><span class="marca"></span>${esc(a)}</li>`).join("")}
+                    </ol>
+                </div>`;
         }
 
         document.getElementById("buscar").addEventListener("input", pintar);
