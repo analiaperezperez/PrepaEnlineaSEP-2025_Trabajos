@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa conceptual: periodo de entreguerras</title>
+    <meta name="description" content="Mapa conceptual del periodo de entreguerras (1918-1939): crisis y transformaciones del mundo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --papel: #f4f1ea;
+            --tarjeta: #fffdf8;
+            --tinta: #2b2622;
+            --tinta-suave: #5e554c;
+            --linea: #e2d8c6;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 24px 16px 48px;
+            background: var(--papel);
+            color: var(--tinta);
+            font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+            line-height: 1.55;
+        }
+        .hoja {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--tarjeta);
+            border-radius: 18px;
+            box-shadow: 0 10px 40px rgba(40, 40, 50, 0.10);
+            overflow: hidden;
+        }
+        .header {
+            padding: 32px 28px 28px;
+            text-align: center;
+            color: #fff;
+            background:
+                linear-gradient(90deg, #2f5d8a 0 25%, #b07a1e 25% 50%, #a83a2a 50% 75%, #3f4d43 75%) top / 100% 8px no-repeat,
+                linear-gradient(160deg, #1d2a38 0%, #2b3e52 55%, #3c5570 100%);
+        }
+        .etiqueta {
+            display: inline-block; padding: 4px 14px;
+            border: 1px solid rgba(255,255,255,0.5); border-radius: 999px;
+            font-size: 0.78em; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .header h1 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.7em, 4vw, 2.5em); margin: 12px 0 4px; line-height: 1.15; }
+        .header p { margin: 0; opacity: 0.9; }
+
+        .barra {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px;
+            margin: 16px 20px 0; font-size: 0.9em; color: var(--tinta-suave); text-align: center;
+        }
+        .barra button {
+            padding: 6px 14px; font: inherit; font-weight: 600; cursor: pointer;
+            border: 1px solid #1d2a38; border-radius: 999px; background: transparent; color: #1d2a38;
+        }
+        .barra button:hover { background: #1d2a38; color: #fff; }
+        #mapa {
+            height: 900px;
+            margin: 12px 20px 24px;
+            border: 1px solid var(--linea);
+            border-radius: 12px;
+            background:
+                radial-gradient(circle, #e7e0d3 1px, transparent 1px) 0 0 / 22px 22px,
+                #fffdf8;
+            touch-action: none;
+        }
+
+        .ref { padding: 22px 28px 28px; border-top: 1px dashed var(--linea); }
+        .ref h3 { font-size: 1em; margin: 16px 0 6px; }
+        .ref h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.25em; margin: 0 0 10px; }
+        .ref ul { margin: 0; padding: 0; list-style: none; }
+        .ref li { font-size: 0.86em; color: var(--tinta-suave); margin-bottom: 6px; padding-left: 2em; text-indent: -2em; overflow-wrap: anywhere; }
+        .footer { padding: 18px 28px; background: #1d2a38; color: #e6ebf0; font-size: 0.85em; text-align: center; }
+
+        @media (max-width: 700px) {
+            body { padding: 12px 8px 32px; }
+            #mapa { height: 72vh; margin: 12px 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+<main class="hoja">
+    <header class="header">
+        <span class="etiqueta">Módulo 10 · Actividad integradora 2</span>
+        <h1>Mapa conceptual: el periodo de entreguerras</h1>
+        <p>1918-1939</p>
+    </header>
+
+    <div class="barra">
+        <span>Arrastra los recuadros para moverlos · Usa la rueda del mouse o dos dedos para acercar · Pasa el mouse sobre un recuadro para ver su referencia completa</span>
+        <button type="button" id="reacomodar">Reacomodar</button>
+    </div>
+    <div id="mapa" role="img" aria-label="Mapa conceptual del periodo de entreguerras"></div>
+
+    <section class="ref">
+        <h2>Referencias</h2>
+        <ul>
+            <li>Federal Reserve History. (s. f.-a). <em>The Great Depression</em>. Federal Reserve Bank. Recuperado el 6 de noviembre de 2026, de https://www.federalreservehistory.org/essays/great-depression</li>
+            <li>Federal Reserve History. (s. f.-b). <em>Stock market crash of 1929</em>. Federal Reserve Bank. Recuperado el 6 de noviembre de 2026, de https://www.federalreservehistory.org/essays/stock-market-crash-of-1929</li>
+            <li>Hobsbawm, E. (1998). <em>Historia del siglo XX</em> (J. Faci, J. Ainaud y C. Castells, Trads.). Crítica. (Obra original publicada en 1994)</li>
+            <li>Museo Conmemorativo del Holocausto de los Estados Unidos [USHMM]. (s. f.). <em>Adolf Hitler y el ascenso al poder de los nazis, 1918-1933</em>. Enciclopedia del Holocausto. Recuperado el 6 de noviembre de 2026, de https://encyclopedia.ushmm.org/content/es/article/the-nazi-rise-to-power</li>
+            <li>National Archives. (s. f.). <em>19th Amendment to the U.S. Constitution: Women's right to vote (1920)</em>. Recuperado el 6 de noviembre de 2026, de https://www.archives.gov/milestone-documents/19th-amendment</li>
+            <li>Office of the Historian. (s. f.-a). <em>The Dawes Plan, the Young Plan, German reparations, and inter-allied war debts</em>. U.S. Department of State. Recuperado el 6 de noviembre de 2026, de https://history.state.gov/milestones/1921-1936/dawes</li>
+            <li>Office of the Historian. (s. f.-b). <em>The Paris Peace Conference and the Treaty of Versailles</em>. U.S. Department of State. Recuperado el 6 de noviembre de 2026, de https://history.state.gov/milestones/1914-1920/paris-peace</li>
+        </ul>
+        <h3>Imágenes (Wikimedia Commons, dominio público)</h3>
+        <ul>
+            <li>Abbe, J. (1932). <em>Iósif Stalin</em> [Fotografía]. https://commons.wikimedia.org/wiki/File:Joseph_Stalin_in_1932_(1).jpg</li>
+            <li>Associated Press. (1929). <em>Multitud frente a la Bolsa de Nueva York, 24 de octubre de 1929</em> [Fotografía]. https://commons.wikimedia.org/wiki/File:Crowds_gathering_outside_New_York_Stock_Exchange.jpg</li>
+            <li>Autor desconocido. (1916). <em>Hugo Ball en el Cabaret Voltaire</em> [Fotografía]. https://commons.wikimedia.org/wiki/File:Hugo_Ball_Cabaret_Voltaire.jpg</li>
+            <li>Autor desconocido. (1927). <em>El cantante de jazz</em> [Cartel]. https://commons.wikimedia.org/wiki/File:The_Jazz_Singer_1927_Poster.jpg</li>
+            <li>Fotógrafo no identificado. (1940). <em>Adolf Hitler</em> [Fotografía]. https://commons.wikimedia.org/wiki/File:Hitler_1940_(retouched).jpg</li>
+            <li>Lange, D. (1936). <em>Madre migrante</em> [Fotografía]. https://commons.wikimedia.org/wiki/File:Lange-MigrantMother02.jpg</li>
+            <li>National Photo Company. (1920). <em>Alice Paul celebra la ratificación del voto femenino</em> [Fotografía]. https://commons.wikimedia.org/wiki/File:Miss_Paul_raising_suffrage_ratification_banner_LCCN2016852157.jpg</li>
+            <li>Orpen, W. (1919). <em>Firma de la paz en el Salón de los Espejos</em> [Pintura]. https://commons.wikimedia.org/wiki/File:Orpen,_William_(Sir)_(RA)_-_The_Signing_of_Peace_in_the_Hall_of_Mirrors,_Versailles,_28th_June_1919_-_Google_Art_Project.jpg</li>
+            <li>Wide World Photos. (1922). <em>Benito Mussolini en la Marcha sobre Roma</em> [Fotografía]. https://commons.wikimedia.org/wiki/File:Benito_Mussolini_marching_into_Rome.jpg</li>
+        </ul>
+    </section>
+
+    <footer class="footer">Mapa conceptual elaborado para el Módulo 10, Transformaciones en el mundo contemporáneo · Semana 1 · Prepa en Línea SEP</footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.9/standalone/umd/vis-network.min.js"></script>
+<script>
+    const COLORES = {
+        c: { fondo: "#1d2a38", borde: "#1d2a38", texto: "#ffffff", cita: "#c9d3dd" },
+        p: { fondo: "#e3ecf5", borde: "#2f5d8a", texto: "#1c3550", cita: "#4b6584" },
+        g: { fondo: "#f6ecd8", borde: "#b07a1e", texto: "#4d360c", cita: "#7d6232" },
+        t: { fondo: "#f6e3df", borde: "#a83a2a", texto: "#4e1a12", cita: "#80453b" },
+        s: { fondo: "#e4e9e4", borde: "#3f4d43", texto: "#1f2a22", cita: "#55645a" }
+    };
+
+    // Cita corta (va en el recuadro) y referencia completa (aparece al pasar el mouse)
+    const FUENTES = {
+        HOB:   ["(Hobsbawm, 1998)", "Hobsbawm, E. (1998). Historia del siglo XX. Crítica."],
+        OHa:   ["(Office of the Historian, s. f.-a)", "Office of the Historian. (s. f.-a). The Dawes Plan, the Young Plan, German reparations, and inter-allied war debts."],
+        OHb:   ["(Office of the Historian, s. f.-b)", "Office of the Historian. (s. f.-b). The Paris Peace Conference and the Treaty of Versailles."],
+        FEDa:  ["(Federal Reserve History, s. f.-a)", "Federal Reserve History. (s. f.-a). The Great Depression."],
+        FEDb:  ["(Federal Reserve History, s. f.-b)", "Federal Reserve History. (s. f.-b). Stock market crash of 1929."],
+        USHMM: ["(USHMM, s. f.)", "Museo Conmemorativo del Holocausto de los Estados Unidos [USHMM]. (s. f.). Adolf Hitler y el ascenso al poder de los nazis, 1918-1933."],
+        NARA:  ["(National Archives, s. f.)", "National Archives. (s. f.). 19th Amendment to the U.S. Constitution: Women's right to vote (1920)."]
+    };
+
+    // [id, rama, título, texto, fuente, imagen, crédito de la imagen, x, y]
+    const NODOS = [
+        ["C",  "c", "Periodo de entreguerras: crisis y transformaciones del mundo", "(1918-1939)", "HOB", null, null, -100, -580],
+
+        ["P1", "p", "Consecuencias de la Primera Guerra Mundial", "", "HOB", null, null, -740, -380],
+        ["P2", "p", "Tratado de Versalles", "28 de junio de 1919", "OHb", "versalles.jpg", "Orpen, W. (1919)", -890, -140],
+        ["P3", "p", "Resentimiento y crisis económica en Alemania", "", "USHMM", null, null, -890, 130],
+        ["P4", "p", "Estados Unidos, nueva potencia mundial", "prestó dinero a Europa", "OHa", null, null, -610, -140],
+
+        ["G1", "g", "La Gran Depresión", "(1929-1939)", "FEDa", null, null, -350, -380],
+        ["G2", "g", "Crac de Wall Street", "24 y 29 de octubre de 1929", "FEDb", "crac.jpg", "Associated Press (1929)", -350, -140],
+        ["G3", "g", "Quiebra de bancos, desempleo y pobreza", "", "FEDa", "madre-migrante.jpg", "Lange, D. (1936)", -350, 140],
+        ["G4", "g", "Desconfianza en la democracia", "", "USHMM", null, null, -350, 450],
+
+        ["T1", "t", "Regímenes totalitarios", "", "HOB", null, null, 160, -380],
+        ["T2", "t", "Líder único, propaganda, policía secreta y represión", "", "HOB", null, null, 160, -140],
+        ["N",  "t", "Nazismo · Alemania", "Hitler (1933-1945). Extrema derecha: racismo y antisemitismo", "USHMM", "hitler.jpg", "Fotógrafo no identificado (1940)", -95, 200],
+        ["F",  "t", "Fascismo · Italia", "Mussolini (1922-1943). Extrema derecha: nacionalismo y anticomunismo", "HOB", "mussolini.jpg", "Wide World Photos (1922)", 160, 200],
+        ["E",  "t", "Estalinismo · URSS", "Stalin (1924-1953). Extrema izquierda: el Estado controla toda la economía", "HOB", "stalin.jpg", "Abbe, J. (1932)", 415, 200],
+
+        ["S1", "s", "Cambios sociales y culturales", "", "HOB", null, null, 700, -380],
+        ["S2", "s", "Radio, cine y jazz", "los “felices años veinte”", "HOB", "cantante-jazz.jpg", "Autor desconocido (1927)", 515, -140],
+        ["S3", "s", "Vanguardias en Europa", "dadaísmo y surrealismo", "HOB", "dada.jpg", "Autor desconocido (1916)", 885, -140],
+        ["S4", "s", "Las mujeres", "trabajo y derecho al voto (EE. UU., 1920)", "NARA", "voto-mujeres.jpg", "National Photo Company (1920)", 700, 340]
+    ];
+
+    // [desde, hacia, palabra de enlace, punteada, curva]
+    const ENLACES = [
+        ["C", "P1", "se originó con las"],
+        ["C", "G1", "se agravó por"],
+        ["C", "T1", "favoreció el surgimiento de"],
+        ["C", "S1", "se reflejó en"],
+
+        ["P1", "P2", "impuso a Alemania el"],
+        ["P2", "P3", "provocó"],
+        ["P1", "P4", "fortaleció a"],
+
+        ["G1", "G2", "comenzó con el"],
+        ["G2", "G3", "tuvo como consecuencia"],
+        ["G3", "G4", "generó"],
+
+        ["T1", "T2", "tenían en común"],
+        ["T2", "N", "se aplicó en el"],
+        ["T2", "F", "se aplicó en el"],
+        ["T2", "E", "se aplicó en el"],
+
+        ["S1", "S2", "en EE. UU. se vivió con"],
+        ["S1", "S3", "en Europa se expresó en"],
+        ["S1", "S4", "cambió el papel de"],
+
+        ["P3", "N", "favoreció el ascenso del", true, { type: "curvedCCW", roundness: 0.3 }],
+        ["G4", "N", "facilitó el triunfo del", true, { type: "curvedCCW", roundness: 0.4 }],
+        ["S2", "T2", "fue usada en la propaganda de", true, { type: "curvedCCW", roundness: 0.35 }]
+    ];
+
+    const FAMILIA = "'Source Sans 3', 'Segoe UI', Arial, sans-serif";
+    const PAD = 12, ALTO_IMG = 96;
+    const imagenes = {};
+    const FOCO = { "stalin.jpg": 0.62, "hitler.jpg": 0.2, "dada.jpg": 0.15, "cantante-jazz.jpg": 0.35, "madre-migrante.jpg": 0.3 };
+
+    function partirLineas(ctx, texto, ancho) {
+        const lineas = [];
+        let actual = "";
+        for (const palabra of texto.split(" ")) {
+            const prueba = actual ? actual + " " + palabra : palabra;
+            if (ctx.measureText(prueba).width > ancho && actual) { lineas.push(actual); actual = palabra; }
+            else actual = prueba;
+        }
+        if (actual) lineas.push(actual);
+        return lineas;
+    }
+
+    function rectRedondo(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+    }
+
+    function renderizador(info) {
+        return ({ ctx, x, y, state }) => {
+            const c = COLORES[info.rama];
+            const central = info.id === "C";
+            const ancho = central ? 330 : 230;
+            const util = ancho - PAD * 2;
+            const fTitulo = `700 ${central ? 21 : 18}px ${FAMILIA}`;
+            const fTexto = `400 16px ${FAMILIA}`;
+            const fCita = `italic 400 13px ${FAMILIA}`;
+
+            ctx.font = fTitulo; const lTitulo = partirLineas(ctx, info.titulo, util);
+            ctx.font = fTexto; const lTexto = info.texto ? partirLineas(ctx, info.texto, util) : [];
+            ctx.font = fCita; const lCita = partirLineas(ctx, FUENTES[info.fuente][0], util);
+            const hTitulo = central ? 25 : 22, hTexto = 20, hCita = 16;
+            const alto = PAD + (info.img ? ALTO_IMG + 10 : 0) + lTitulo.length * hTitulo
+                + lTexto.length * hTexto + 6 + lCita.length * hCita + PAD;
+
+            return {
+                drawNode() {
+                    const x0 = x - ancho / 2, y0 = y - alto / 2;
+                    ctx.save();
+                    ctx.shadowColor = "rgba(40, 30, 20, 0.12)";
+                    ctx.shadowBlur = state.hover || state.selected ? 14 : 6;
+                    ctx.shadowOffsetY = 2;
+                    rectRedondo(ctx, x0, y0, ancho, alto, 8);
+                    ctx.fillStyle = c.fondo; ctx.fill();
+                    ctx.shadowColor = "transparent";
+                    ctx.lineWidth = state.hover || state.selected ? 2.5 : 1.5;
+                    ctx.strokeStyle = state.selected ? "#2b2622" : c.borde;
+                    ctx.stroke();
+
+                    let cy = y0 + PAD;
+                    if (info.img) {
+                        const im = imagenes[info.img];
+                        if (im && im.complete && im.naturalWidth) {
+                            const w = util, h = ALTO_IMG;
+                            const escala = Math.max(w / im.naturalWidth, h / im.naturalHeight);
+                            const sw = w / escala, sh = h / escala;
+                            const sx = (im.naturalWidth - sw) / 2, sy = (im.naturalHeight - sh) * (FOCO[info.img] ?? 0.4);
+                            ctx.save();
+                            rectRedondo(ctx, x0 + PAD, cy, w, h, 5);
+                            ctx.clip();
+                            ctx.drawImage(im, sx, sy, sw, sh, x0 + PAD, cy, w, h);
+                            ctx.restore();
+                        }
+                        cy += ALTO_IMG + 10;
+                    }
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "top";
+                    ctx.fillStyle = c.texto;
+                    ctx.font = fTitulo;
+                    lTitulo.forEach(l => { ctx.fillText(l, x, cy); cy += hTitulo; });
+                    ctx.font = fTexto;
+                    lTexto.forEach(l => { ctx.fillText(l, x, cy); cy += hTexto; });
+                    cy += 6;
+                    ctx.font = fCita; ctx.fillStyle = c.cita;
+                    lCita.forEach(l => { ctx.fillText(l, x, cy); cy += hCita; });
+                    ctx.restore();
+                },
+                nodeDimensions: { width: ancho, height: alto }
+            };
+        };
+    }
+
+    const nodos = new vis.DataSet(NODOS.map(([id, rama, titulo, texto, fuente, img, credito, x, y]) => {
+        if (img && !imagenes[img]) {
+            imagenes[img] = new Image();
+            imagenes[img].src = "Recursos/" + img;
+        }
+        const ayuda = "Fuente: " + FUENTES[fuente][1] + (credito ? "\nImagen: " + credito + ", Wikimedia Commons." : "");
+        return { id, x, y, shape: "custom", title: ayuda, ctxRenderer: renderizador({ id, rama, titulo, texto, fuente, img }) };
+    }));
+
+    const fuenteEnlace = { face: FAMILIA, size: 16, color: "#3d362f", background: "#fffdf8", strokeWidth: 0, align: "horizontal" };
+    const enlaces = new vis.DataSet(ENLACES.map(([from, to, label, punteada, curva], i) => ({
+        id: i, from, to, label,
+        arrows: { to: { enabled: true, scaleFactor: 0.6 } },
+        dashes: !!punteada,
+        color: { color: punteada ? "#8a7f73" : "#6b6157", highlight: "#2b2622", hover: "#2b2622" },
+        width: 1.4,
+        smooth: curva || (punteada ? { type: "curvedCW", roundness: 0.12 } : { type: "cubicBezier", forceDirection: "vertical", roundness: 0.4 }),
+        font: label === "fue usada en la propaganda de" ? { ...fuenteEnlace, vadjust: -34 } : fuenteEnlace
+    })));
+
+    const red = new vis.Network(document.getElementById("mapa"), { nodes: nodos, edges: enlaces }, {
+        physics: false,
+        interaction: { dragNodes: true, dragView: true, zoomView: true, hover: true, tooltipDelay: 150 },
+        layout: { improvedLayout: false }
+    });
+    function encuadrar(animar) {
+        red.fit({ animation: false });
+        red.moveTo({ scale: red.getScale() * 0.92, animation: animar ? { duration: 400 } : false });
+    }
+    red.once("afterDrawing", () => setTimeout(() => encuadrar(false), 0));
+    Object.values(imagenes).forEach(im => im.addEventListener("load", () => red.redraw()));
+    if (document.fonts) document.fonts.ready.then(() => red.redraw());
+
+    document.getElementById("reacomodar").addEventListener("click", () => {
+        nodos.update(NODOS.map(n => ({ id: n[0], x: n[7], y: n[8] })));
+        encuadrar(true);
+    });
+    window.addEventListener("resize", () => encuadrar(false));
+</script>
+</body>
+</html>
