@@ -3,820 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transformaciones a inicios del siglo XX</title>
+    <title>Línea del tiempo: inicios del siglo XX</title>
     <meta name="description" content="Línea del tiempo: Segunda Revolución Industrial, imperialismo y Primera Guerra Mundial (1869-1920).">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --papel: #f4efe6;
+            --papel: #f4f1ea;
             --tarjeta: #fffdf8;
-            --tinta: #26221e;
-            --suave: #655b51;
-            --linea: #ddd2bf;
-            --a: #2f5d8a;  --a-claro: #e3ecf5;
-            --b: #a8701a;  --b-claro: #f6ecd8;
-            --c: #a83a2a;  --c-claro: #f6e1dc;
-            --d: #3d4a3f;  --d-claro: #e4e9e3;
-            --sombra: 0 6px 22px rgba(50, 35, 20, 0.08);
+            --tinta: #2b2622;
+            --tinta-suave: #5e554c;
+            --azul: #2f5d8a;   --azul-claro: #e3ecf5;
+            --ocre: #b07a1e;   --ocre-claro: #f6ecd8;
+            --rojo: #a83a2a;   --rojo-claro: #f6e3df;
+            --gris: #3f4d43;   --gris-claro: #e4e9e4;
+            --linea: #e2d8c6;
         }
         * { box-sizing: border-box; }
         body {
-            margin: 0;
+            font-family: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
             background: var(--papel);
             color: var(--tinta);
-            font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 24px 16px 48px;
             font-size: 17px;
             line-height: 1.6;
         }
-        .ancho { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-        h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.2; }
-
-        /* ---------- Portada ---------- */
-        .hero {
-            color: #fff;
-            padding: 64px 0 56px;
-            background:
-                linear-gradient(rgba(20, 22, 26, 0.72), rgba(20, 22, 26, 0.86)),
-                url("Recursos/trincheras.jpg") center 40% / cover;
+        .infografia {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--tarjeta);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(40, 40, 50, 0.12);
+            overflow: hidden;
         }
-        .etiqueta {
+
+        /* ---------- Encabezado ---------- */
+        .header {
+            padding: 48px 32px 40px;
+            text-align: center;
+            color: #fff;
+            background:
+                linear-gradient(90deg, var(--azul) 0 25%, var(--ocre) 25% 50%, var(--rojo) 50% 75%, var(--gris) 75%) top / 100% 8px no-repeat,
+                linear-gradient(160deg, #1d2a38 0%, #2b3e52 55%, #3c5570 100%);
+        }
+        .header .etiqueta {
             display: inline-block;
             padding: 4px 14px;
             border: 1px solid rgba(255,255,255,0.5);
             border-radius: 999px;
-            font-size: 0.78em;
+            font-size: 0.8em;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-        .hero h1 { font-size: clamp(2em, 5.5vw, 3.4em); font-weight: 800; margin: 18px 0 12px; max-width: 820px; }
-        .hero p { max-width: 720px; margin: 0; font-size: 1.12em; opacity: 0.92; }
-        .periodo { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
-        .periodo span {
-            padding: 6px 14px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.22);
-            font-size: 0.92em;
-        }
-
-        /* ---------- Relación causal ---------- */
-        .seccion { padding: 48px 0 8px; }
-        .seccion > .ancho > h2 { font-size: 1.8em; margin: 0 0 8px; }
-        .seccion .intro { color: var(--suave); margin: 0 0 24px; max-width: 760px; }
-        .cadena {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            margin-bottom: 28px;
-        }
-        .eslabon {
-            position: relative;
-            padding: 14px 18px 14px 26px;
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.95em;
-            line-height: 1.3;
-            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%);
-        }
-        .eslabon:first-child { clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); padding-left: 18px; }
-        .eslabon small { display: block; font-weight: 400; opacity: 0.88; }
-        .eslabon.t-a { background: var(--a); } .eslabon.t-b { background: var(--b); }
-        .eslabon.t-c { background: var(--c); } .eslabon.t-d { background: var(--d); }
-
-        .claves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-        .clave {
-            background: var(--tarjeta);
-            border: 1px solid var(--linea);
-            border-top: 5px solid var(--color);
-            border-radius: 14px;
-            padding: 18px 20px;
-            box-shadow: var(--sombra);
-        }
-        .clave .letra {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 30px; height: 30px; border-radius: 50%;
-            background: var(--color); color: #fff; font-weight: 800; font-size: 0.9em;
-        }
-        .clave h3 { display: inline; margin-left: 8px; font-size: 1.15em; color: var(--color); }
-        .clave p { margin: 10px 0 0; font-size: 0.96em; }
-        .t-a { --color: var(--a); --claro: var(--a-claro); }
-        .t-b { --color: var(--b); --claro: var(--b-claro); }
-        .t-c { --color: var(--c); --claro: var(--c-claro); }
-        .t-d { --color: var(--d); --claro: var(--d-claro); }
-
-        /* ---------- Filtros ---------- */
-        .barra-filtros {
-            position: sticky; top: 0; z-index: 5;
-            background: rgba(244, 239, 230, 0.94);
-            backdrop-filter: blur(6px);
-            border-bottom: 1px solid var(--linea);
-            padding: 12px 0;
-        }
-        .barra-filtros .ancho { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-        .barra-filtros b { font-size: 0.9em; margin-right: 4px; }
-        .chip {
-            display: inline-flex; align-items: center; gap: 7px;
-            padding: 6px 13px;
-            font: inherit; font-size: 0.88em; font-weight: 600;
-            border-radius: 999px;
-            border: 1px solid var(--linea);
-            background: var(--tarjeta);
-            color: var(--tinta);
-            cursor: pointer;
-        }
-        .chip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color, var(--suave)); }
-        .chip[aria-pressed="true"] { background: var(--color, var(--tinta)); border-color: var(--color, var(--tinta)); color: #fff; }
-        .chip[aria-pressed="true"] .dot { background: #fff; }
-        .cuenta { margin-left: auto; font-size: 0.88em; color: var(--suave); }
-
-        /* ---------- Línea del tiempo ---------- */
-        .linea { list-style: none; margin: 32px 0 0; padding: 0; position: relative; }
-        .linea::before {
-            content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px;
-            transform: translateX(-50%); border-radius: 4px;
-            background: linear-gradient(var(--a) 0%, var(--b) 35%, var(--c) 62%, var(--d) 80%);
-        }
-        .evento { position: relative; width: 50%; padding: 0 40px 28px 0; }
-        .evento.der { margin-left: 50%; padding: 0 0 28px 40px; }
-        .evento .punto {
-            position: absolute; top: 18px; right: -11px; width: 22px; height: 22px;
-            border-radius: 50%; background: var(--tarjeta); border: 5px solid var(--color);
-            z-index: 1;
-        }
-        .evento.der .punto { right: auto; left: -11px; }
-        .evento[hidden] { display: none; }
-        .tarjeta {
-            background: var(--tarjeta);
-            border: 1px solid var(--linea);
-            border-left: 5px solid var(--color);
-            border-radius: 14px;
-            padding: 16px 20px 18px;
-            box-shadow: var(--sombra);
-        }
-        .tarjeta time {
-            display: inline-block;
+        .header h1 {
             font-family: 'Fraunces', Georgia, serif;
             font-weight: 800;
-            font-size: 1.08em;
-            color: var(--color);
+            font-size: clamp(1.9em, 5vw, 3em);
+            line-height: 1.1;
+            margin: 16px 0 8px;
         }
-        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
-        .tag {
-            font-size: 0.72em; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
-            padding: 2px 9px; border-radius: 999px; background: var(--claro); color: var(--color);
+        .header .subtitulo { margin: 0 auto; max-width: 640px; font-size: 1.12em; opacity: 0.92; }
+        .datos { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+        .dato {
+            min-width: 150px;
+            padding: 12px 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 12px;
         }
-        .tarjeta h3 { margin: 6px 0 6px; font-size: 1.2em; }
-        .tarjeta p { margin: 0; font-size: 0.97em; }
-        .tarjeta figure { margin: 14px 0 0; }
-        .tarjeta img {
-            display: block; width: 100%; max-height: 300px; object-fit: cover; object-position: center 30%;
-            border-radius: 10px; background: #e9e2d6;
-        }
-        .tarjeta figcaption { margin-top: 6px; font-size: 0.8em; font-style: italic; color: var(--suave); }
+        .dato strong { display: block; font-family: 'Fraunces', Georgia, serif; font-size: 1.5em; line-height: 1.15; }
+        .dato span { font-size: 0.85em; opacity: 0.9; }
 
-        /* ---------- Fuentes ---------- */
-        .fuentes { padding: 40px 0 56px; }
-        .fuentes h2 { font-size: 1.6em; margin: 0 0 6px; }
-        .fuentes h3 { font-size: 1.05em; margin: 22px 0 8px; }
-        .fuentes ol, .fuentes ul { margin: 0; padding: 0; list-style: none; }
-        .fuentes li {
-            font-size: 0.86em; margin-bottom: 8px; padding-left: 2em; text-indent: -2em;
-            overflow-wrap: anywhere;
+        /* ---------- Fechas clave ---------- */
+        .linea-tiempo { padding: 32px 32px 8px; }
+        .linea-tiempo h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.5em; margin: 0 0 20px; text-align: center; }
+        .tiempo {
+            list-style: none; margin: 0; padding: 0;
+            display: grid; grid-template-columns: repeat(6, 1fr);
+            position: relative;
         }
-        .nota-ia {
-            margin-top: 10px; padding: 14px 16px; border-radius: 12px;
-            background: var(--tarjeta); border: 1px dashed var(--linea); font-size: 0.88em;
+        .tiempo::before {
+            content: ""; position: absolute; top: 9px; left: 8%; right: 8%; height: 3px;
+            background: linear-gradient(90deg, var(--azul), var(--ocre), var(--rojo), var(--gris));
         }
-        footer { padding: 24px 0; text-align: center; font-size: 0.85em; color: var(--suave); border-top: 1px solid var(--linea); }
+        .tiempo li { position: relative; text-align: center; padding: 0 6px; font-size: 0.88em; color: var(--tinta-suave); }
+        .tiempo li::before {
+            content: ""; display: block; width: 20px; height: 20px; margin: 0 auto 10px;
+            border-radius: 50%; background: var(--tarjeta); border: 4px solid var(--c); position: relative;
+        }
+        .tiempo b { display: block; font-size: 1.05em; color: var(--tinta); }
+
+        /* ---------- Tarjetas ---------- */
+        .contenido { padding: 24px 32px 32px; display: grid; gap: 24px; }
+        .tarjeta {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 28px;
+            padding: 24px;
+            background: #fff;
+            border: 1px solid var(--linea);
+            border-radius: 14px;
+            border-top: 6px solid var(--c);
+        }
+        .t-a { --c: var(--azul); --f: var(--azul-claro); }
+        .t-b { --c: var(--ocre); --f: var(--ocre-claro); }
+        .t-c { --c: var(--rojo); --f: var(--rojo-claro); }
+        .t-d { --c: var(--gris); --f: var(--gris-claro); }
+
+        .fotos { display: grid; gap: 14px; align-content: start; }
+        .fotos figure { margin: 0; }
+        .fotos img {
+            display: block; width: 100%; height: 200px; object-fit: cover; object-position: center 30%;
+            border-radius: 10px; filter: sepia(0.15);
+        }
+        .fotos figcaption { font-size: 0.8em; color: var(--tinta-suave); margin-top: 6px; font-style: italic; }
+
+        .numero {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 38px; height: 38px; border-radius: 50%;
+            background: var(--c); color: #fff;
+            font-family: 'Fraunces', Georgia, serif; font-weight: 800;
+            margin-right: 10px; flex-shrink: 0;
+        }
+        .tarjeta h2 {
+            display: flex; align-items: center;
+            font-family: 'Fraunces', Georgia, serif; font-size: 1.45em; line-height: 1.2;
+            color: var(--c); margin: 0 0 12px;
+        }
+        .eventos { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+        .eventos li { padding: 10px 14px; background: var(--f); border-radius: 10px; }
+        .eventos time {
+            display: block; font-weight: 700; color: var(--c);
+            font-size: 0.85em; letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .destacado {
+            margin: 14px 0 0; padding: 10px 16px; border-left: 4px solid var(--c);
+            font-family: 'Fraunces', Georgia, serif; font-size: 1.02em;
+        }
+        .referencia {
+            grid-column: 1 / -1;
+            font-size: 0.8em; color: var(--tinta-suave);
+            border-top: 1px dashed var(--linea); padding-top: 12px;
+        }
+        .referencia p { margin: 4px 0; padding-left: 2em; text-indent: -2em; overflow-wrap: anywhere; }
+
+        /* ---------- Pie ---------- */
+        .footer { padding: 24px 32px; background: #1d2a38; color: #e6ebf0; font-size: 0.88em; text-align: center; }
+        .footer p { margin: 4px 0; }
 
         /* ---------- Responsivo ---------- */
-        @media (max-width: 820px) {
-            .cadena { grid-template-columns: 1fr 1fr; gap: 6px; }
-            .eslabon, .eslabon:first-child { clip-path: none; border-radius: 10px; padding: 12px 14px; }
-            .claves { grid-template-columns: 1fr; }
-            .linea::before { left: 11px; }
-            .evento, .evento.der { width: 100%; margin-left: 0; padding: 0 0 22px 40px; }
-            .evento .punto, .evento.der .punto { left: 0; right: auto; }
-            .cuenta { width: 100%; margin-left: 0; }
+        @media (max-width: 760px) {
+            body { padding: 12px 8px 32px; font-size: 16px; }
+            .header { padding: 40px 20px 32px; }
+            .linea-tiempo, .contenido { padding-left: 16px; padding-right: 16px; }
+            .tarjeta { grid-template-columns: 1fr; padding: 18px; gap: 18px; }
+            .fotos { grid-template-columns: 1fr 1fr; }
+            .fotos img { height: 150px; }
+            .tiempo { grid-template-columns: 1fr; gap: 14px; text-align: left; }
+            .tiempo::before { top: 0; bottom: 0; left: 9px; right: auto; width: 3px; height: auto; background: linear-gradient(var(--azul), var(--ocre), var(--rojo), var(--gris)); }
+            .tiempo li { display: flex; gap: 12px; text-align: left; padding: 0; }
+            .tiempo li::before { margin: 0; flex-shrink: 0; }
+            .tiempo b { display: inline; margin-right: 6px; }
         }
         @media print {
-            .barra-filtros { display: none; }
-            .hero { background: #26221e; }
-            .tarjeta, .clave { box-shadow: none; break-inside: avoid; }
+            body { background: #fff; padding: 0; }
+            .infografia { box-shadow: none; }
+            .tarjeta { break-inside: avoid; }
         }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="ancho">
+
+    <main class="infografia">
+        <header class="header">
             <span class="etiqueta">Módulo 10 · Actividad integradora 1</span>
             <h1>Transformaciones del mundo a inicios del siglo XX</h1>
-            <p>Línea del tiempo de la Segunda Revolución Industrial, la expansión imperialista y la Primera Guerra Mundial: cómo la tecnología impulsó la competencia entre potencias y cómo esa competencia terminó en guerra.</p>
-            <div class="periodo">
-                <span>1869 – 1920</span>
-                <span>48 acontecimientos</span>
-                <span>Asia · África · Oceanía · Europa · América</span>
+            <p class="subtitulo">Segunda Revolución Industrial, imperialismo y Primera Guerra Mundial (1869-1920)</p>
+            <div class="datos">
+                <div class="dato"><strong>1914-1918</strong><span>Primera Guerra Mundial</span></div>
+                <div class="dato"><strong>≈9 millones</strong><span>de soldados muertos</span></div>
+                <div class="dato"><strong>4 imperios</strong><span>desaparecieron</span></div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <section class="seccion">
-        <div class="ancho">
-            <h2>Relación causal</h2>
-            <p class="intro">Los cuatro procesos están encadenados: cada uno es causa del siguiente. Los colores de esta sección se repiten en la línea del tiempo.</p>
-            <div class="cadena" aria-label="Cadena causal">
-                <div class="eslabon t-a">Segunda Revolución Industrial<small>más producción y poder</small></div>
-                <div class="eslabon t-b">Imperialismo<small>recursos y mercados</small></div>
-                <div class="eslabon t-c">Rivalidad y alianzas<small>tensiones entre potencias</small></div>
-                <div class="eslabon t-d">Primera Guerra Mundial<small>un nuevo orden mundial</small></div>
-            </div>
-            <div class="claves">
-                <div class="clave t-a">
-                    <span class="letra">a)</span>
-                    <h3>Transformaciones sociotecnológicas</h3>
-                    <p>La electricidad, el petróleo, el acero, el motor de combustión y la producción en serie multiplicaron la producción. Las potencias que más se industrializaron (Reino Unido, Alemania y Estados Unidos) ganaron poder económico, pero también militar: la misma industria que fabricaba autos y trenes produjo acorazados, ametralladoras y gas venenoso.</p>
-                </div>
-                <div class="clave t-b">
-                    <span class="letra">b)</span>
-                    <h3>Imperialismo en Asia, África y Oceanía</h3>
-                    <p>La industria necesitaba materias primas (caucho, petróleo, algodón, minerales) y mercados donde vender lo que sobraba. Las potencias se repartieron África en la Conferencia de Berlín, impusieron su influencia en China, la India y el Sudeste asiático, y ocuparon las islas del Pacífico. Cada nuevo territorio aumentaba la rivalidad entre ellas.</p>
-                </div>
-                <div class="clave t-c">
-                    <span class="letra">c)</span>
-                    <h3>Causas de la Primera Guerra Mundial</h3>
-                    <p>Los historiadores resumen las causas en cuatro: militarismo (carrera armamentista), alianzas (Triple Alianza contra Triple Entente), imperialismo (crisis de Fashoda, Marruecos y los Balcanes) y nacionalismo (revancha francesa y nacionalismo serbio). El atentado de Sarajevo fue solo el detonante.</p>
-                </div>
-                <div class="clave t-d">
-                    <span class="letra">d)</span>
-                    <h3>Consecuencias y nuevo equilibrio</h3>
-                    <p>Murieron millones de personas, cayeron cuatro imperios y nacieron nuevos países. Europa quedó endeudada y perdió su papel central; Estados Unidos y Japón se fortalecieron y surgió la Rusia comunista. Las mujeres ganaron derechos, el arte reaccionó con movimientos como el dadaísmo, y el Tratado de Versalles dejó resentimientos que llevarían a una nueva guerra.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <section class="linea-tiempo" aria-label="Fechas clave">
+            <h2>Fechas clave</h2>
+            <ol class="tiempo">
+                <li class="t-a"><b>1869</b>Ferrocarril transcontinental</li>
+                <li class="t-b"><b>1884</b>Conferencia de Berlín</li>
+                <li class="t-c"><b>1907</b>Se forma la Triple Entente</li>
+                <li class="t-c"><b>1914</b>Atentado de Sarajevo</li>
+                <li class="t-d"><b>1918</b>Fin de la guerra</li>
+                <li class="t-d"><b>1919</b>Tratado de Versalles</li>
+            </ol>
+        </section>
 
-    <nav class="barra-filtros" aria-label="Filtrar acontecimientos">
-        <div class="ancho">
-            <b>Ver:</b>
-            <button type="button" class="chip" data-tema="todos" aria-pressed="true"><span class="dot"></span>Todos</button>
-            <button type="button" class="chip t-a" data-tema="a" aria-pressed="false"><span class="dot"></span>Segunda Revolución Industrial</button><button type="button" class="chip t-b" data-tema="b" aria-pressed="false"><span class="dot"></span>Expansión imperialista</button><button type="button" class="chip t-c" data-tema="c" aria-pressed="false"><span class="dot"></span>Causas de la guerra</button><button type="button" class="chip t-d" data-tema="d" aria-pressed="false"><span class="dot"></span>Guerra y consecuencias</button>
-            <span class="cuenta" id="cuenta"></span>
-        </div>
-    </nav>
+        <div class="contenido">
 
-    <main class="ancho">
-        <ol class="linea" id="linea">
-            <li class="evento izq t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>10 de mayo de 1869</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Se completa el primer ferrocarril transcontinental de Estados Unidos</h3>
-                    <p>En Promontory, Utah, se unen las vías que conectan el Atlántico con el Pacífico. El ferrocarril redujo de meses a días el viaje entre costas y permitió mover materias primas y productos a gran escala, base del crecimiento industrial estadounidense.</p>
-                    <figure><img src="Recursos/ferrocarril.jpg" alt="Ceremonia del último riel en Promontory, Utah, 10 de mayo de 1869." loading="lazy"><figcaption>Ceremonia del último riel en Promontory, Utah, 10 de mayo de 1869.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-a" data-temas="ab">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>17 de noviembre de 1869</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Se inaugura el canal de Suez</h3>
-                    <p>El canal une el Mediterráneo con el mar Rojo y acorta miles de kilómetros la ruta entre Europa y Asia. Su valor estratégico hizo que Reino Unido comprara acciones del canal en 1875 y ocupara Egipto en 1882 para protegerlo.</p>
-                    <figure><img src="Recursos/suez.jpg" alt="Inauguración del canal de Suez en Port Said, 1869." loading="lazy"><figcaption>Inauguración del canal de Suez en Port Said, 1869.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento izq t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>10 de enero de 1870</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>John D. Rockefeller funda la Standard Oil</h3>
-                    <p>La empresa llegó a controlar cerca del 90 % de la refinación de petróleo en Estados Unidos. Es un ejemplo de los monopolios que surgieron cuando la riqueza industrial se concentró en pocas manos.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-c" data-temas="c">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>18 de enero de 1871</time>
-                    <div class="tags"><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Se proclama el Imperio alemán en Versalles</h3>
-                    <p>Tras vencer a Francia, los estados alemanes se unifican bajo Guillermo I. Por el Tratado de Fráncfort (10 de mayo de 1871) Francia pierde Alsacia y Lorena, lo que creó un deseo de revancha que duró hasta 1914. Alemania se convirtió en una potencia industrial que pronto rivalizó con Reino Unido.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>7 de marzo de 1876</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Alexander Graham Bell obtiene la patente del teléfono</h3>
-                    <p>El teléfono, junto con el telégrafo, transformó las comunicaciones: empresas, gobiernos y ejércitos podían coordinarse a distancia de forma casi inmediata.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>1 de enero de 1877</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>La reina Victoria es proclamada emperatriz de la India</h3>
-                    <p>En el Durbar de Delhi se celebra el título imperial de Victoria. La India era la colonia más valiosa del Imperio británico: proveía algodón, té y especias, además de un enorme mercado para los textiles británicos.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-c" data-temas="c">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>20 de mayo de 1882</time>
-                    <div class="tags"><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Se firma la Triple Alianza</h3>
-                    <p>Alemania, Austria-Hungría e Italia se comprometen a ayudarse en caso de ataque. Este sistema de alianzas dividió a Europa en bloques y convirtió cualquier conflicto local en un posible conflicto general.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>4 de septiembre de 1882</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Thomas Edison abre la central eléctrica de Pearl Street en Nueva York</h3>
-                    <p>Fue la primera central comercial de energía eléctrica. La electricidad, junto con el petróleo, sustituyó poco a poco al carbón y al vapor, y permitió nuevas fábricas, iluminación urbana y transporte eléctrico.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>15 de noviembre de 1884</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Inicia la Conferencia de Berlín</h3>
-                    <p>Catorce países se reúnen para fijar las reglas del reparto de África, sin ningún representante africano. El Acta General, firmada el 26 de febrero de 1885, aceleró el llamado “reparto de África”: hacia 1914, casi todo el continente estaba bajo control europeo.</p>
-                    <figure><img src="Recursos/conferencia-berlin.jpg" alt="Grabado de la Conferencia de Berlín, 1884-1885." loading="lazy"><figcaption>Grabado de la Conferencia de Berlín, 1884-1885.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>6 de julio de 1885</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Louis Pasteur aplica con éxito la vacuna contra la rabia</h3>
-                    <p>Los avances en vacunas, higiene y medicina redujeron la mortalidad. Junto con una mejor alimentación, provocaron una explosión demográfica en Europa, que aportó mano de obra para las fábricas y migrantes hacia América y las colonias.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>29 de enero de 1886</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Karl Benz patenta el primer automóvil con motor de combustión</h3>
-                    <p>El motor de combustión interna, alimentado con derivados del petróleo, revolucionó el transporte y aumentó la demanda de petróleo, un recurso que las potencias buscarían controlar.</p>
-                    <figure><img src="Recursos/benz.jpg" alt="Automóvil de Karl Benz (Benz Patent-Motorwagen)." loading="lazy"><figcaption>Automóvil de Karl Benz (Benz Patent-Motorwagen).</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>1 de marzo de 1896</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Etiopía derrota a Italia en la batalla de Adua</h3>
-                    <p>Las tropas del emperador Menelik II vencen al ejército italiano. Etiopía fue, junto con Liberia, uno de los pocos territorios africanos que conservaron su independencia frente al imperialismo.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>12 de agosto de 1898</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Estados Unidos anexa Hawái</h3>
-                    <p>Hawái se convierte en territorio estadounidense. Sus plantaciones de azúcar y su ubicación en medio del Pacífico la hacían clave para el comercio con Asia y como base naval en Oceanía.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="bc">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>18 de septiembre de 1898</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Incidente de Fashoda</h3>
-                    <p>Tropas británicas y francesas se encuentran en Fashoda (Sudán) y casi se enfrentan por el control del Nilo. Francia terminó por retirarse. El episodio muestra cómo la competencia colonial generaba tensiones entre las potencias europeas.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>10 de diciembre de 1898</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Tratado de París: España cede Filipinas, Guam y Puerto Rico</h3>
-                    <p>Al perder la guerra contra Estados Unidos, España entrega sus últimas colonias en Asia, Oceanía y el Caribe. Estados Unidos se suma así a las potencias imperialistas del Pacífico.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>11 de octubre de 1899</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Inicia la Segunda Guerra de los Bóers en Sudáfrica</h3>
-                    <p>Reino Unido combate a las repúblicas bóeres para controlar las minas de oro y diamantes. Ganó en 1902, pero usó campos de concentración donde murieron miles de civiles. Imperialistas como Cecil Rhodes soñaban con un dominio británico “del Cabo al Cairo”.</p>
-                    <figure><img src="Recursos/rhodes.png" alt="“El coloso de Rodas”, caricatura de Cecil Rhodes en la revista Punch, 10 de diciembre de 1892." loading="lazy"><figcaption>“El coloso de Rodas”, caricatura de Cecil Rhodes en la revista Punch, 10 de diciembre de 1892.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento izq t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>2 de diciembre de 1899</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Alemania y Estados Unidos se reparten Samoa</h3>
-                    <p>Con la Convención Tripartita, Alemania y Estados Unidos dividen las islas de Samoa, y Reino Unido recibe compensaciones en otras islas. Oceanía también quedó repartida entre las potencias.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>14 de agosto de 1900</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Tropas de ocho potencias toman Pekín</h3>
-                    <p>La rebelión de los bóxers en China se levantó contra la influencia extranjera. Una fuerza internacional la sofocó y, con el Protocolo Bóxer del 7 de septiembre de 1901, China fue obligada a pagar una enorme indemnización.</p>
-                    <figure><img src="Recursos/boxers.jpg" alt="Tropas alemanas e indias durante la rebelión de los bóxers, China, 1900." loading="lazy"><figcaption>Tropas alemanas e indias durante la rebelión de los bóxers, China, 1900.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento izq t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>1 de enero de 1901</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Nace la Federación de Australia</h3>
-                    <p>Las colonias británicas de Australia se unen en un dominio con autogobierno, pero dentro del Imperio británico, que dominaba buena parte de Oceanía.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>12 de diciembre de 1901</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Guglielmo Marconi recibe la primera señal de radio transatlántica</h3>
-                    <p>La telegrafía inalámbrica permitió comunicarse entre continentes y con los barcos en altamar, algo muy valioso para el comercio, las colonias y las marinas de guerra.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>17 de diciembre de 1903</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Primer vuelo de los hermanos Wright</h3>
-                    <p>En Kitty Hawk, Carolina del Norte, el Flyer vuela 12 segundos. Apenas once años después, los aviones ya se usaban en la guerra para observar y bombardear.</p>
-                    <figure><img src="Recursos/wright.jpg" alt="Primer vuelo controlado con motor, Kitty Hawk, 17 de diciembre de 1903." loading="lazy"><figcaption>Primer vuelo controlado con motor, Kitty Hawk, 17 de diciembre de 1903.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="bc">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>8 de febrero de 1904</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Inicia la guerra ruso-japonesa</h3>
-                    <p>Rusia y Japón chocan por Manchuria y Corea. Japón ganó y el Tratado de Portsmouth (5 de septiembre de 1905) lo confirmó como potencia imperialista. Fue la primera vez que un país asiático vencía a una potencia europea en la era moderna.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-c" data-temas="c">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>8 de abril de 1904</time>
-                    <div class="tags"><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Francia y Reino Unido firman la Entente Cordial</h3>
-                    <p>Las dos rivales coloniales resuelven sus disputas sobre Egipto y Marruecos y se acercan frente al crecimiento alemán.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="bc">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>31 de marzo de 1905</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Primera crisis marroquí</h3>
-                    <p>El káiser Guillermo II visita Tánger para desafiar la influencia francesa en Marruecos. En lugar de dividir a sus rivales, la crisis unió más a Francia y Reino Unido.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-a" data-temas="ac">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>10 de febrero de 1906</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Se bota el acorazado HMS Dreadnought</h3>
-                    <p>Este buque británico, más rápido y con más cañones que cualquier otro, dejó obsoletas a todas las flotas e intensificó la carrera armamentista naval con Alemania. La industria pesada se puso al servicio del poder militar.</p>
-                    <figure><img src="Recursos/dreadnought.jpg" alt="HMS Dreadnought, 1906." loading="lazy"><figcaption>HMS Dreadnought, 1906.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-c" data-temas="c">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>31 de agosto de 1907</time>
-                    <div class="tags"><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Convención anglo-rusa: nace la Triple Entente</h3>
-                    <p>Reino Unido y Rusia resuelven sus disputas en Persia, Afganistán y el Tíbet. Con Francia forman la Triple Entente, el bloque opuesto a la Triple Alianza.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>1 de octubre de 1908</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Ford lanza el Modelo T</h3>
-                    <p>Fue un automóvil sencillo y barato para el público general. Más de 15 millones de unidades vendidas hasta 1927 lo convirtieron en símbolo de la producción en masa.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-c" data-temas="c">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>6 de octubre de 1908</time>
-                    <div class="tags"><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Austria-Hungría anexa Bosnia-Herzegovina</h3>
-                    <p>La anexión enfureció a Serbia, que aspiraba a unir a los pueblos eslavos del sur, y a Rusia, su protectora. Los Balcanes se volvieron el “polvorín de Europa”.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-b" data-temas="b">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>22 de agosto de 1910</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span></div>
-                    <h3>Japón anexa Corea</h3>
-                    <p>Con el Tratado de Anexión (vigente desde el 29 de agosto), Corea se convierte en colonia japonesa hasta 1945. Japón buscaba materias primas y mercados para su industria.</p>
-                    <figure><img src="Recursos/corea.jpg" alt="Tratado de anexión de Corea por Japón, 22 de agosto de 1910." loading="lazy"><figcaption>Tratado de anexión de Corea por Japón, 22 de agosto de 1910.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="bc">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>1 de julio de 1911</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Crisis de Agadir (segunda crisis marroquí)</h3>
-                    <p>Alemania envía el cañonero Panther al puerto de Agadir. A cambio de aceptar el control francés de Marruecos, recibe territorio en el Congo. La crisis aumentó la desconfianza entre los bloques.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-c" data-temas="c">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>8 de octubre de 1912</time>
-                    <div class="tags"><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Comienzan las guerras balcánicas</h3>
-                    <p>Montenegro, Serbia, Bulgaria y Grecia atacan al Imperio otomano. Serbia salió fortalecida, lo que preocupó todavía más a Austria-Hungría.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-a" data-temas="a">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>1 de diciembre de 1913</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span></div>
-                    <h3>Ford pone en marcha la línea de ensamblaje móvil</h3>
-                    <p>En la planta de Highland Park, el tiempo para armar un auto bajó de unas 12 horas a cerca de hora y media. Aplicaba las ideas de Frederick Taylor: dividir el trabajo en tareas simples para producir más y más barato.</p>
-                    <figure><img src="Recursos/ford.jpg" alt="Línea de ensamblaje de Ford, 1913." loading="lazy"><figcaption>Línea de ensamblaje de Ford, 1913.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento izq t-c" data-temas="c">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>28 de junio de 1914</time>
-                    <div class="tags"><span class="tag t-c">Causas de la guerra</span></div>
-                    <h3>Asesinato del archiduque Francisco Fernando en Sarajevo</h3>
-                    <p>Gavrilo Princip, nacionalista serbobosnio, asesina al heredero austrohúngaro y a su esposa Sofía. Fue el detonante, pero las causas de fondo venían de años atrás: militarismo, alianzas, imperialismo y nacionalismo.</p>
-                    <figure><img src="Recursos/sarajevo.jpg" alt="Ilustración del atentado de Sarajevo en La Domenica del Corriere, 12 de julio de 1914." loading="lazy"><figcaption>Ilustración del atentado de Sarajevo en La Domenica del Corriere, 12 de julio de 1914.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-c" data-temas="cd">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>28 de julio de 1914</time>
-                    <div class="tags"><span class="tag t-c">Causas de la guerra</span><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Austria-Hungría declara la guerra a Serbia</h3>
-                    <p>El sistema de alianzas se activa en cadena: Alemania declara la guerra a Rusia (1 de agosto) y a Francia (3 de agosto), y Reino Unido entra el 4 de agosto tras la invasión alemana de Bélgica.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>6 de septiembre de 1914</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Batalla del Marne</h3>
-                    <p>Francia y Reino Unido detienen el avance alemán cerca de París. Termina la idea de una guerra rápida y empieza la guerra de trincheras en el frente occidental.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-a" data-temas="ad">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>22 de abril de 1915</time>
-                    <div class="tags"><span class="tag t-a">Segunda Revolución Industrial</span><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Primer ataque masivo con gas cloro en Ypres</h3>
-                    <p>Alemania usa gas venenoso contra las trincheras aliadas. La ciencia y la industria de la Segunda Revolución Industrial se pusieron al servicio de una guerra con armas químicas, ametralladoras, submarinos, tanques y aviones.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>7 de mayo de 1915</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Un submarino alemán hunde el Lusitania</h3>
-                    <p>Mueren 1,198 personas, 128 de ellas estadounidenses. El hundimiento puso a la opinión pública de Estados Unidos en contra de Alemania.</p>
-                    <figure><img src="Recursos/lusitania.jpg" alt="Hundimiento del Lusitania, ilustración de The Illustrated London News, 15 de mayo de 1915." loading="lazy"><figcaption>Hundimiento del Lusitania, ilustración de The Illustrated London News, 15 de mayo de 1915.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>5 de febrero de 1916</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Nace el dadaísmo en el Cabaret Voltaire de Zúrich</h3>
-                    <p>Artistas refugiados en Suiza crean un movimiento que rechazaba la lógica y los valores que habían llevado a la guerra. Fue una de las primeras respuestas culturales al horror del conflicto.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>1 de julio de 1916</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Comienza la batalla del Somme</h3>
-                    <p>Solo el primer día, el ejército británico sufrió unas 57,000 bajas. Hasta noviembre hubo más de un millón de bajas entre ambos bandos, por avances de unos pocos kilómetros. Fue el símbolo de la guerra de desgaste.</p>
-                    <figure><img src="Recursos/trincheras.jpg" alt="Soldados británicos en una trinchera durante la batalla del Somme, julio de 1916." loading="lazy"><figcaption>Soldados británicos en una trinchera durante la batalla del Somme, julio de 1916.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>16 de enero de 1917</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Alemania envía el telegrama Zimmermann</h3>
-                    <p>Alemania propone a México una alianza contra Estados Unidos a cambio de ayudarle a recuperar Texas, Nuevo México y Arizona. Los británicos lo interceptaron y se publicó el 1 de marzo. El presidente Venustiano Carranza no aceptó.</p>
-                    <figure><img src="Recursos/zimmermann.jpg" alt="Telegrama Zimmermann descifrado, 1917." loading="lazy"><figcaption>Telegrama Zimmermann descifrado, 1917.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento izq t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>6 de abril de 1917</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Estados Unidos declara la guerra a Alemania</h3>
-                    <p>La guerra submarina alemana y el telegrama Zimmermann llevaron a Estados Unidos a entrar al conflicto. Sus tropas y recursos inclinaron la balanza a favor de la Entente.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>7 de noviembre de 1917</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Revolución de Octubre en Rusia</h3>
-                    <p>Los bolcheviques de Lenin toman el poder (el 25 de octubre según el calendario ruso de entonces). Nace el primer Estado comunista, que más tarde sería la URSS, y Rusia sale de la guerra.</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>6 de febrero de 1918</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Las mujeres obtienen el voto en Reino Unido</h3>
-                    <p>Durante la guerra, millones de mujeres trabajaron en fábricas de municiones, transporte y oficinas. Su papel ayudó a que en Reino Unido se aprobara el voto para mujeres mayores de 30 años, un cambio social duradero.</p>
-                    <figure><img src="Recursos/mujeres.jpg" alt="Trabajadoras en la fábrica de municiones de Chilwell, Inglaterra, 1917." loading="lazy"><figcaption>Trabajadoras en la fábrica de municiones de Chilwell, Inglaterra, 1917.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>3 de marzo de 1918</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Tratado de Brest-Litovsk</h3>
-                    <p>La Rusia bolchevique firma la paz con Alemania y le cede amplios territorios (Polonia, los países bálticos y Ucrania, entre otros).</p>
-                    
-                </article>
-            </li>
-            <li class="evento izq t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>11 de noviembre de 1918</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Armisticio de Compiègne: termina la guerra</h3>
-                    <p>Alemania firma el armisticio. Murieron cerca de 9 millones de soldados y millones de civiles. Desaparecieron cuatro imperios: el alemán, el austrohúngaro, el ruso y el otomano.</p>
-                    
-                </article>
-            </li>
-            <li class="evento der t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>28 de junio de 1919</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Se firma el Tratado de Versalles</h3>
-                    <p>Alemania es declarada responsable de la guerra: pierde Alsacia y Lorena y todas sus colonias, debe desmilitarizar Renania, reducir su ejército y pagar enormes reparaciones. El resentimiento que provocó favoreció el ascenso del nazismo.</p>
-                    <figure><img src="Recursos/versalles.jpg" alt="La firma de la paz en el Salón de los Espejos de Versalles, pintura de William Orpen, 1919." loading="lazy"><figcaption>La firma de la paz en el Salón de los Espejos de Versalles, pintura de William Orpen, 1919.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento izq t-d" data-temas="d">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>10 de enero de 1920</time>
-                    <div class="tags"><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Entra en funciones la Sociedad de Naciones</h3>
-                    <p>Fue el primer organismo internacional creado para mantener la paz. Estados Unidos, que la impulsó, nunca ingresó, lo que la debilitó desde el inicio.</p>
-                    <figure><img src="Recursos/sociedad-naciones.jpg" alt="Primera sesión de la Sociedad de Naciones en Ginebra, 1920." loading="lazy"><figcaption>Primera sesión de la Sociedad de Naciones en Ginebra, 1920.</figcaption></figure>
-                </article>
-            </li>
-            <li class="evento der t-b" data-temas="bd">
-                <div class="punto" aria-hidden="true"></div>
-                <article class="tarjeta">
-                    <time>10 de agosto de 1920</time>
-                    <div class="tags"><span class="tag t-b">Expansión imperialista</span><span class="tag t-d">Guerra y consecuencias</span></div>
-                    <h3>Tratado de Sèvres: se reparte el Imperio otomano</h3>
-                    <p>Francia y Reino Unido reciben como “mandatos” territorios de Medio Oriente: Siria y Líbano para Francia; Irak, Palestina y Transjordania para Reino Unido. El imperialismo continuó con otro nombre.</p>
-                    
-                </article>
-            </li>
-        </ol>
+            <!-- 1. Segunda Revolución Industrial -->
+            <article class="tarjeta t-a">
+                <div class="fotos">
+                    <figure>
+                        <img src="Recursos/ford.jpg" alt="Línea de ensamblaje de Ford en 1913">
+                        <figcaption>Línea de ensamblaje de Ford, 1913.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="Recursos/wright.jpg" alt="Primer vuelo de los hermanos Wright en 1903">
+                        <figcaption>Primer vuelo de los hermanos Wright, 1903.</figcaption>
+                    </figure>
+                </div>
+                <div>
+                    <h2><span class="numero">1</span>La Segunda Revolución Industrial</h2>
+                    <ol class="eventos">
+                        <li><time>10 de mayo de 1869</time>Se termina el primer ferrocarril que cruza Estados Unidos de costa a costa. Mercancías y personas viajan en días y no en meses.</li>
+                        <li><time>4 de septiembre de 1882</time>Edison abre en Nueva York la primera central eléctrica comercial. La electricidad y el petróleo empiezan a reemplazar al carbón.</li>
+                        <li><time>29 de enero de 1886</time>Karl Benz patenta el automóvil con motor de gasolina, lo que aumenta la necesidad de petróleo.</li>
+                        <li><time>17 de diciembre de 1903</time>Los hermanos Wright hacen el primer vuelo en avión. Once años después los aviones ya se usaban en la guerra.</li>
+                        <li><time>1 de diciembre de 1913</time>Ford usa la línea de ensamblaje móvil: armar un auto pasa de 12 horas a hora y media.</li>
+                    </ol>
+                    <p class="destacado">Las potencias más industrializadas se hicieron más ricas y también más fuertes militarmente.</p>
+                </div>
+                <div class="referencia">
+                    <p><strong>Imágenes:</strong> Autor desconocido. (1913). <em>Línea de ensamblaje de Ford</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913.jpg</p>
+                    <p>Daniels, J. T. (1903). <em>Primer vuelo en Kitty Hawk</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:First_flight2.jpg</p>
+                    <p><strong>Texto:</strong> National Park Service. (s. f.). <em>1903-The first flight</em>. Recuperado el 6 de noviembre de 2026, de https://www.nps.gov/wrbr/learn/historyculture/thefirstflight.htm</p>
+                </div>
+            </article>
+
+            <!-- 2. Imperialismo -->
+            <article class="tarjeta t-b">
+                <div class="fotos">
+                    <figure>
+                        <img src="Recursos/rhodes.png" alt="Caricatura de Cecil Rhodes con un pie en El Cabo y otro en El Cairo" style="object-position:center 15%">
+                        <figcaption>“El coloso de Rodas”, caricatura de 1892.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="Recursos/boxers.jpg" alt="Tropas extranjeras en China durante la rebelión de los bóxers">
+                        <figcaption>Tropas extranjeras en China, 1900.</figcaption>
+                    </figure>
+                </div>
+                <div>
+                    <h2><span class="numero">2</span>La expansión imperialista</h2>
+                    <ol class="eventos">
+                        <li><time>17 de noviembre de 1869</time>Se inaugura el canal de Suez, que acorta el viaje entre Europa y Asia. Reino Unido ocupó Egipto en 1882 para controlarlo.</li>
+                        <li><time>15 de noviembre de 1884</time>Empieza la Conferencia de Berlín: las potencias europeas se reparten África sin ningún africano presente.</li>
+                        <li><time>12 de agosto de 1898</time>Estados Unidos se anexa Hawái, clave en el Pacífico (Oceanía) para comerciar con Asia.</li>
+                        <li><time>11 de octubre de 1899</time>Empieza la guerra de los bóers: Reino Unido pelea en Sudáfrica por las minas de oro y diamantes.</li>
+                        <li><time>14 de agosto de 1900</time>Ocho potencias toman Pekín y acaban con la rebelión de los bóxers. China debe pagarles una gran indemnización.</li>
+                        <li><time>22 de agosto de 1910</time>Japón se anexa Corea para obtener materias primas y mercados.</li>
+                    </ol>
+                    <p class="destacado">Las potencias competían por recursos y mercados en África, Asia y Oceanía, y eso aumentó la rivalidad entre ellas.</p>
+                </div>
+                <div class="referencia">
+                    <p><strong>Imágenes:</strong> Sambourne, E. L. (1892). <em>El coloso de Rodas</em> [Caricatura]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Punch_Rhodes_Colossus.png</p>
+                    <p>Autor desconocido. (1900). <em>Tropas alemanas e indias en China</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:German_and_Indian_troops,_Boxer_Rebellion,_China,_1900.jpg</p>
+                    <p><strong>Texto:</strong> Hobsbawm, E. (1998). <em>La era del imperio, 1875-1914</em> (J. Faci Lacasta, Trad.). Crítica. (Obra original publicada en 1987)</p>
+                </div>
+            </article>
+
+            <!-- 3. Antecedentes de la guerra -->
+            <article class="tarjeta t-c">
+                <div class="fotos">
+                    <figure>
+                        <img src="Recursos/sarajevo.jpg" alt="Ilustración del atentado de Sarajevo en 1914" style="object-position:center 25%">
+                        <figcaption>El atentado de Sarajevo, 28 de junio de 1914.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="Recursos/dreadnought.jpg" alt="Acorazado británico HMS Dreadnought">
+                        <figcaption>Acorazado HMS Dreadnought, 1906.</figcaption>
+                    </figure>
+                </div>
+                <div>
+                    <h2><span class="numero">3</span>Las causas de la Primera Guerra Mundial</h2>
+                    <ol class="eventos">
+                        <li><time>18 de enero de 1871</time>Nace el Imperio alemán tras vencer a Francia, que pierde Alsacia y Lorena y queda con deseos de revancha.</li>
+                        <li><time>20 de mayo de 1882</time>Alemania, Austria-Hungría e Italia forman la Triple Alianza.</li>
+                        <li><time>10 de febrero de 1906</time>Reino Unido bota el acorazado Dreadnought y empieza una carrera armamentista con Alemania.</li>
+                        <li><time>31 de agosto de 1907</time>Francia, Reino Unido y Rusia forman la Triple Entente. Europa queda dividida en dos bloques.</li>
+                        <li><time>6 de octubre de 1908</time>Austria-Hungría se anexa Bosnia y molesta a Serbia y a Rusia.</li>
+                        <li><time>28 de junio de 1914</time>Un nacionalista serbobosnio asesina en Sarajevo al archiduque Francisco Fernando, heredero de Austria-Hungría.</li>
+                        <li><time>28 de julio de 1914</time>Austria-Hungría declara la guerra a Serbia y las alianzas arrastran a toda Europa.</li>
+                    </ol>
+                    <p class="destacado">Militarismo, alianzas, imperialismo y nacionalismo: Sarajevo solo fue el detonante.</p>
+                </div>
+                <div class="referencia">
+                    <p><strong>Imágenes:</strong> Beltrame, A. (1914). <em>El atentado de Sarajevo</em> [Ilustración]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:DC-1914-27-d-Sarajevo-cropped.jpg</p>
+                    <p>Autor desconocido. (1906). <em>HMS Dreadnought</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:HMS_Dreadnought_1906_H61017.jpg</p>
+                    <p><strong>Texto:</strong> Hobsbawm, E. (1998). <em>La era del imperio, 1875-1914</em> (J. Faci Lacasta, Trad.). Crítica. (Obra original publicada en 1987)</p>
+                </div>
+            </article>
+
+            <!-- 4. Guerra y consecuencias -->
+            <article class="tarjeta t-d">
+                <div class="fotos">
+                    <figure>
+                        <img src="Recursos/trincheras.jpg" alt="Soldados británicos en una trinchera durante la batalla del Somme">
+                        <figcaption>Trinchera en la batalla del Somme, 1916.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="Recursos/versalles.jpg" alt="Firma del Tratado de Versalles en el Salón de los Espejos" style="object-position:center 40%">
+                        <figcaption>Firma del Tratado de Versalles, 1919.</figcaption>
+                    </figure>
+                </div>
+                <div>
+                    <h2><span class="numero">4</span>La guerra y sus consecuencias</h2>
+                    <ol class="eventos">
+                        <li><time>1 de julio de 1916</time>Empieza la batalla del Somme. Solo el primer día hubo unas 57,000 bajas británicas.</li>
+                        <li><time>16 de enero de 1917</time>Telegrama Zimmermann: Alemania propone a México aliarse contra Estados Unidos. Carranza no aceptó.</li>
+                        <li><time>6 de abril de 1917</time>Estados Unidos entra a la guerra del lado de la Entente.</li>
+                        <li><time>6 de febrero de 1918</time>En Reino Unido las mujeres mayores de 30 años obtienen el voto, después de trabajar en las fábricas durante la guerra.</li>
+                        <li><time>11 de noviembre de 1918</time>Armisticio: termina la guerra. Desaparecen los imperios alemán, austrohúngaro, ruso y otomano.</li>
+                        <li><time>28 de junio de 1919</time>Tratado de Versalles: Alemania pierde territorios y colonias y debe pagar enormes reparaciones.</li>
+                        <li><time>10 de enero de 1920</time>Se crea la Sociedad de Naciones para evitar otra guerra, pero Estados Unidos nunca entró.</li>
+                    </ol>
+                    <p class="destacado">Europa quedó endeudada y perdió su lugar central; Estados Unidos se convirtió en la nueva potencia mundial.</p>
+                </div>
+                <div class="referencia">
+                    <p><strong>Imágenes:</strong> Brooke, J. W. (1916). <em>Soldados en una trinchera del Somme</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Cheshire_Regiment_trench_Somme_1916.jpg</p>
+                    <p>Orpen, W. (1919). <em>Firma de la paz en el Salón de los Espejos</em> [Pintura]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Orpen,_William_(Sir)_(RA)_-_The_Signing_of_Peace_in_the_Hall_of_Mirrors,_Versailles,_28th_June_1919_-_Google_Art_Project.jpg</p>
+                    <p><strong>Texto:</strong> National Archives. (s. f.). <em>Zimmermann Telegram (1917)</em>. Recuperado el 6 de noviembre de 2026, de https://www.archives.gov/milestone-documents/zimmermann-telegram</p>
+                    <p>Office of the Historian. (s. f.). <em>The Paris Peace Conference and the Treaty of Versailles</em>. U.S. Department of State. Recuperado el 6 de noviembre de 2026, de https://history.state.gov/milestones/1914-1920/paris-peace</p>
+                </div>
+            </article>
+
+        </div>
+
+        <footer class="footer">
+            <p>Línea del tiempo elaborada para el Módulo 10, Transformaciones en el mundo contemporáneo · Semana 1 · Prepa en Línea SEP.</p>
+            <p>Imágenes de dominio público obtenidas de Wikimedia Commons, usadas con fines educativos.</p>        </footer>
     </main>
 
-    <section class="fuentes">
-        <div class="ancho">
-            <h2>Referencias</h2>
-            <h3>Fuentes de información</h3>
-            <ol>
-<li>Hobsbawm, E. (1998). <em>Historia del siglo XX</em> (J. Faci, J. Ainaud y C. Castells, Trads.). Crítica. (Obra original publicada en 1994)</li>
-<li>Hobsbawm, E. (1998). <em>La era del imperio, 1875-1914</em> (J. Faci Lacasta, Trad.). Crítica. (Obra original publicada en 1987)</li>
-<li>National Archives. (s. f.). <em>Zimmermann Telegram (1917)</em>. Recuperado el 6 de noviembre de 2026, de https://www.archives.gov/milestone-documents/zimmermann-telegram</li>
-<li>National Park Service. (s. f.). <em>1903-The first flight</em>. Wright Brothers National Memorial. Recuperado el 6 de noviembre de 2026, de https://www.nps.gov/wrbr/learn/historyculture/thefirstflight.htm</li>
-<li>National Park Service. (s. f.). <em>Edison biography</em>. Thomas Edison National Historical Park. Recuperado el 6 de noviembre de 2026, de https://www.nps.gov/edis/learn/historyculture/edison-biography.htm</li>
-<li>National Park Service. (s. f.). <em>History &amp; culture</em>. Golden Spike National Historical Park. Recuperado el 6 de noviembre de 2026, de https://www.nps.gov/gosp/learn/historyculture/index.htm</li>
-<li>Office of the Historian. (s. f.-a). <em>The League of Nations, 1920</em>. U.S. Department of State. Recuperado el 6 de noviembre de 2026, de https://history.state.gov/milestones/1914-1920/league</li>
-<li>Office of the Historian. (s. f.-b). <em>The Paris Peace Conference and the Treaty of Versailles</em>. U.S. Department of State. Recuperado el 6 de noviembre de 2026, de https://history.state.gov/milestones/1914-1920/paris-peace</li>
-<li>Office of the Historian. (s. f.-c). <em>The Spanish-American War, 1898</em>. U.S. Department of State. Recuperado el 6 de noviembre de 2026, de https://history.state.gov/milestones/1866-1898/spanish-american-war</li>
-<li>Office of the Historian. (s. f.-d). <em>The Treaty of Portsmouth and the Russo-Japanese War, 1904–1905</em>. U.S. Department of State. Recuperado el 6 de noviembre de 2026, de https://history.state.gov/milestones/1899-1913/portsmouth-treaty</li>
-<li>Office of the Historian. (s. f.-e). <em>U.S. entry into World War I, 1917</em>. U.S. Department of State. Recuperado el 6 de noviembre de 2026, de https://history.state.gov/milestones/1914-1920/wwi</li>
-            </ol>
-            <h3>Imágenes (dominio público, Wikimedia Commons; consultadas el 6 de noviembre de 2026)</h3>
-            <ol>
-<li>Autor desconocido. (1869). <em>Inauguración del canal de Suez en Port Said, 1869</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Opening_of_the_Suez_Canal,_Port_Said,_1869.jpg</li>
-<li>Autor desconocido. (1913). <em>Línea de ensamblaje de Ford, 1913</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Ford_assembly_line_-_1913.jpg</li>
-<li>Autor desconocido. (1906). <em>HMS Dreadnought, 1906</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:HMS_Dreadnought_1906_H61017.jpg</li>
-<li>Autor desconocido. (1885). <em>Grabado de la Conferencia de Berlín, 1884-1885</em> [Grabado]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Berlin_Conference_1884.jpg</li>
-<li>Autor desconocido. (1900). <em>Tropas alemanas e indias durante la rebelión de los bóxers, China, 1900</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:German_and_Indian_troops,_Boxer_Rebellion,_China,_1900.jpg</li>
-<li>Autor desconocido. (1920). <em>Primera sesión de la Sociedad de Naciones en Ginebra, 1920</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Eerste_zitting_van_de_Volkenbond_Gen%C3%A8ve_1920,_SFA001004095.jpg</li>
-<li>Beltrame, A. (1914). <em>Ilustración del atentado de Sarajevo en La Domenica del Corriere, 12 de julio de 1914</em> [Ilustración]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:DC-1914-27-d-Sarajevo-cropped.jpg</li>
-<li>Benz &amp; Cie. (ca. 1886). <em>Automóvil de Karl Benz (Benz Patent-Motorwagen)</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:1885Benz.jpg</li>
-<li>Brooke, J. W. (1916). <em>Soldados británicos en una trinchera durante la batalla del Somme, julio de 1916</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Cheshire_Regiment_trench_Somme_1916.jpg</li>
-<li>Daniels, J. T. (1903). <em>Primer vuelo controlado con motor, Kitty Hawk, 17 de diciembre de 1903</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:First_flight2.jpg</li>
-<li>Imperio de Japón e Imperio coreano. (1910). <em>Tratado de anexión de Corea por Japón, 22 de agosto de 1910</em> [Documento]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Japan%E2%80%93Korea_Annexation_Treaty_1.jpg</li>
-<li>Nicholls, H. (1917). <em>Trabajadoras en la fábrica de municiones de Chilwell, Inglaterra, 1917</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Women_with_shells_at_Chilwell_1917_IWM_Q_30017.jpg</li>
-<li>Orpen, W. (1919). <em>La firma de la paz en el Salón de los Espejos de Versalles, pintura de William Orpen, 1919</em> [Pintura]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Orpen,_William_(Sir)_(RA)_-_The_Signing_of_Peace_in_the_Hall_of_Mirrors,_Versailles,_28th_June_1919_-_Google_Art_Project.jpg</li>
-<li>Russell, A. J. (1869). <em>Ceremonia del último riel en Promontory, Utah, 10 de mayo de 1869</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Golden_Spike_ceremony,_Promontory,_Utah,_May_10,_1869.jpg</li>
-<li>Sambourne, E. L. (1892). <em>“El coloso de Rodas”, caricatura de Cecil Rhodes en la revista Punch, 10 de diciembre de 1892</em> [Caricatura]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Punch_Rhodes_Colossus.png</li>
-<li>Wilkinson, N. (1915). <em>Hundimiento del Lusitania, ilustración de The Illustrated London News, 15 de mayo de 1915</em> [Ilustración]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Sinking_of_the_Lusitania_London_Illus_News.jpg</li>
-<li>Zimmermann, A. (1917). <em>Telegrama Zimmermann descifrado, 1917</em> [Documento]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Zimmermann-telegramm-offen.jpg</li>
-            </ol>
-            <h3>Herramienta de inteligencia artificial generativa</h3>
-            <p class="nota-ia">Anthropic. (2026). <em>Claude</em> (versión Opus 5.5) [Modelo de lenguaje de gran tamaño]. https://claude.ai. Se utilizó como apoyo para organizar cronológicamente los acontecimientos, contrastar fechas con las fuentes citadas, localizar imágenes de dominio público y dar formato a la página. La selección y revisión del contenido son responsabilidad de la estudiante.</p>
-        </div>
-    </section>
-
-    <footer>Prepa en Línea SEP · Módulo 10 · Transformaciones en el mundo contemporáneo · Generación 82</footer>
-
-    <script>
-        const chips = document.querySelectorAll(".chip");
-        const eventos = document.querySelectorAll(".evento");
-        const cuenta = document.getElementById("cuenta");
-        function filtrar(tema) {
-            let n = 0, i = 0;
-            eventos.forEach(ev => {
-                const ver = tema === "todos" || ev.dataset.temas.includes(tema);
-                ev.hidden = !ver;
-                if (ver) {
-                    ev.classList.toggle("izq", i % 2 === 0);
-                    ev.classList.toggle("der", i % 2 === 1);
-                    i++; n++;
-                }
-            });
-            cuenta.textContent = n + (n === 1 ? " acontecimiento" : " acontecimientos");
-        }
-        chips.forEach(c => c.addEventListener("click", () => {
-            chips.forEach(o => o.setAttribute("aria-pressed", o === c));
-            filtrar(c.dataset.tema);
-        }));
-        filtrar("todos");
-    </script>
 </body>
 </html>
