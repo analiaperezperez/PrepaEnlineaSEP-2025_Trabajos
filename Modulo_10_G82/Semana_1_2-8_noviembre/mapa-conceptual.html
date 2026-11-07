@@ -91,6 +91,7 @@
     </header>
 
     <div class="barra">
+        <span><b>Cómo leerlo:</b> cada flecha forma una oración, por ejemplo «La Gran Depresión → comenzó con el → Crac de Wall Street».</span>
         <span>Arrastra los recuadros para moverlos · Usa la rueda del mouse o dos dedos para acercar · Pasa el mouse sobre un recuadro para ver su referencia completa</span>
         <button type="button" id="reacomodar">Reacomodar</button>
     </div>
@@ -152,12 +153,12 @@
         ["P1", "p", "Consecuencias de la Primera Guerra Mundial", "", "HOB", null, null, -740, -380],
         ["P2", "p", "Tratado de Versalles", "28 de junio de 1919", "OHb", "versalles.jpg", "Orpen, W. (1919)", -890, -140],
         ["P3", "p", "Resentimiento y crisis económica en Alemania", "", "USHMM", null, null, -890, 130],
-        ["P4", "p", "Estados Unidos, nueva potencia mundial", "prestó dinero a Europa", "OHa", null, null, -610, -140],
+        ["P4", "p", "Estados Unidos, nueva potencia mundial", "prestó dinero a Europa", "OHa", null, null, -560, -140],
 
-        ["G1", "g", "La Gran Depresión", "(1929-1939)", "FEDa", null, null, -350, -380],
-        ["G2", "g", "Crac de Wall Street", "24 y 29 de octubre de 1929", "FEDb", "crac.jpg", "Associated Press (1929)", -350, -140],
-        ["G3", "g", "Quiebra de bancos, desempleo y pobreza", "", "FEDa", "madre-migrante.jpg", "Lange, D. (1936)", -350, 140],
-        ["G4", "g", "Desconfianza en la democracia", "", "USHMM", null, null, -350, 450],
+        ["G1", "g", "La Gran Depresión", "(1929-1939)", "FEDa", null, null, -330, -380],
+        ["G2", "g", "Crac de Wall Street", "24 y 29 de octubre de 1929", "FEDb", "crac.jpg", "Associated Press (1929)", -330, -140],
+        ["G3", "g", "Quiebra de bancos, desempleo y pobreza", "", "FEDa", "madre-migrante.jpg", "Lange, D. (1936)", -330, 140],
+        ["G4", "g", "Desconfianza en la democracia", "", "USHMM", null, null, -330, 450],
 
         ["T1", "t", "Regímenes totalitarios", "", "HOB", null, null, 160, -380],
         ["T2", "t", "Líder único, propaganda, policía secreta y represión", "", "HOB", null, null, 160, -140],
@@ -167,37 +168,37 @@
 
         ["S1", "s", "Cambios sociales y culturales", "", "HOB", null, null, 700, -380],
         ["S2", "s", "Radio, cine y jazz", "los “felices años veinte”", "HOB", "cantante-jazz.jpg", "Autor desconocido (1927)", 515, -140],
-        ["S3", "s", "Vanguardias en Europa", "dadaísmo y surrealismo", "HOB", "dada.jpg", "Autor desconocido (1916)", 885, -140],
+        ["S3", "s", "Vanguardias artísticas", "dadaísmo y surrealismo", "HOB", "dada.jpg", "Autor desconocido (1916)", 885, -140],
         ["S4", "s", "Las mujeres", "trabajo y derecho al voto (EE. UU., 1920)", "NARA", "voto-mujeres.jpg", "National Photo Company (1920)", 700, 340]
     ];
 
     // [desde, hacia, palabra de enlace, punteada, curva]
     const ENLACES = [
-        ["C", "P1", "se originó con las"],
-        ["C", "G1", "se agravó por"],
-        ["C", "T1", "favoreció el surgimiento de"],
-        ["C", "S1", "se reflejó en"],
+        ["C", "P1", "surgió a partir de las"],
+        ["C", "G1", "se agravó con la"],
+        ["C", "T1", "favoreció la aparición de los"],
+        ["C", "S1", "trajo"],
 
-        ["P1", "P2", "impuso a Alemania el"],
+        ["P1", "P2", "obligaron a Alemania a firmar el"],
         ["P2", "P3", "provocó"],
-        ["P1", "P4", "fortaleció a"],
+        ["P1", "P4", "beneficiaron a"],
 
         ["G1", "G2", "comenzó con el"],
-        ["G2", "G3", "tuvo como consecuencia"],
+        ["G2", "G3", "provocó"],
         ["G3", "G4", "generó"],
 
-        ["T1", "T2", "tenían en común"],
-        ["T2", "N", "se aplicó en el"],
-        ["T2", "F", "se aplicó en el"],
-        ["T2", "E", "se aplicó en el"],
+        ["T1", "T2", "se caracterizaron por un"],
+        ["T2", "N", "se vio en el"],
+        ["T2", "F", "se vio en el"],
+        ["T2", "E", "se vio en el"],
 
-        ["S1", "S2", "en EE. UU. se vivió con"],
-        ["S1", "S3", "en Europa se expresó en"],
-        ["S1", "S4", "cambió el papel de"],
+        ["S1", "S2", "en EE. UU. se vieron en"],
+        ["S1", "S3", "en Europa se vieron en las"],
+        ["S1", "S4", "transformaron la vida de"],
 
         ["P3", "N", "favoreció el ascenso del", true, { type: "curvedCCW", roundness: 0.3 }],
         ["G4", "N", "facilitó el triunfo del", true, { type: "curvedCCW", roundness: 0.4 }],
-        ["S2", "T2", "fue usada en la propaganda de", true, { type: "curvedCCW", roundness: 0.35 }]
+        ["S2", "T2", "se usaron para la propaganda del", true, { type: "curvedCW", roundness: 0.7 }]
     ];
 
     const FAMILIA = "'Source Sans 3', 'Segoe UI', Arial, sans-serif";
@@ -308,7 +309,7 @@
         color: { color: punteada ? "#8a7f73" : "#6b6157", highlight: "#2b2622", hover: "#2b2622" },
         width: 1.4,
         smooth: curva || (punteada ? { type: "curvedCW", roundness: 0.12 } : { type: "cubicBezier", forceDirection: "vertical", roundness: 0.4 }),
-        font: label === "fue usada en la propaganda de" ? { ...fuenteEnlace, vadjust: -34 } : fuenteEnlace
+        font: label === "se usaron para la propaganda del" ? { ...fuenteEnlace, vadjust: 0 } : fuenteEnlace
     })));
 
     const red = new vis.Network(document.getElementById("mapa"), { nodes: nodos, edges: enlaces }, {
