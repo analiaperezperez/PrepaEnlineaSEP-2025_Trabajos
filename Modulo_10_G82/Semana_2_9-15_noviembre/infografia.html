@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia, África y Latinoamérica en el siglo XX</title>
+    <meta name="description" content="Infografía: descolonización de Asia y África, desintegración de la URSS y dictaduras militares en América Latina.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --papel: #f4f1ea;
+            --tarjeta: #fffdf8;
+            --tinta: #2b2622;
+            --tinta-suave: #5e554c;
+            --ocre: #b07a1e;  --ocre-claro: #f6ecd8;
+            --rojo: #a83a2a;  --rojo-claro: #f6e3df;
+            --verde: #2f6b52; --verde-claro: #e2efe8;
+            --linea: #e2d8c6;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
+            background: var(--papel);
+            color: var(--tinta);
+            margin: 0;
+            padding: 24px 16px 48px;
+            font-size: 17px;
+            line-height: 1.55;
+        }
+        .infografia {
+            max-width: 1040px;
+            margin: 0 auto;
+            background: var(--tarjeta);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(40, 40, 50, 0.12);
+            overflow: hidden;
+        }
+
+        /* ---------- Encabezado ---------- */
+        .header {
+            padding: 44px 32px 36px;
+            text-align: center;
+            color: #fff;
+            background:
+                linear-gradient(90deg, var(--ocre) 0 33.3%, var(--rojo) 33.3% 66.6%, var(--verde) 66.6%) top / 100% 8px no-repeat,
+                linear-gradient(160deg, #1d2a38 0%, #2b3e52 55%, #3c5570 100%);
+        }
+        .etiqueta {
+            display: inline-block; padding: 4px 14px;
+            border: 1px solid rgba(255,255,255,0.5); border-radius: 999px;
+            font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .header h1 {
+            font-family: 'Fraunces', Georgia, serif; font-weight: 800;
+            font-size: clamp(1.8em, 4.6vw, 2.8em); line-height: 1.1; margin: 16px 0 8px;
+        }
+        .header p { margin: 0 auto; max-width: 640px; font-size: 1.1em; opacity: 0.92; }
+        .datos { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
+        .dato {
+            min-width: 150px; padding: 10px 16px;
+            background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px;
+        }
+        .dato strong { display: block; font-family: 'Fraunces', Georgia, serif; font-size: 1.45em; line-height: 1.15; }
+        .dato span { font-size: 0.85em; opacity: 0.9; }
+
+        /* ---------- Fechas clave ---------- */
+        .linea-tiempo { padding: 30px 32px 6px; }
+        .linea-tiempo h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.45em; margin: 0 0 18px; text-align: center; }
+        .tiempo { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); position: relative; }
+        .tiempo::before {
+            content: ""; position: absolute; top: 9px; left: 8%; right: 8%; height: 3px;
+            background: linear-gradient(90deg, var(--ocre), var(--rojo), var(--verde));
+        }
+        .tiempo li { position: relative; text-align: center; padding: 0 6px; font-size: 0.88em; color: var(--tinta-suave); }
+        .tiempo li::before {
+            content: ""; display: block; width: 20px; height: 20px; margin: 0 auto 10px;
+            border-radius: 50%; background: var(--tarjeta); border: 4px solid var(--c); position: relative;
+        }
+        .tiempo b { display: block; font-size: 1.05em; color: var(--tinta); }
+
+        /* ---------- Tarjetas ---------- */
+        .contenido { padding: 22px 32px 30px; display: grid; gap: 22px; }
+        .tarjeta {
+            display: grid; grid-template-columns: 260px 1fr; gap: 26px;
+            padding: 22px; background: #fff;
+            border: 1px solid var(--linea); border-radius: 14px; border-top: 6px solid var(--c);
+        }
+        .t-1 { --c: var(--ocre); --f: var(--ocre-claro); }
+        .t-2 { --c: var(--rojo); --f: var(--rojo-claro); }
+        .t-3 { --c: var(--verde); --f: var(--verde-claro); }
+        .tarjeta figure { margin: 0; }
+        .tarjeta img {
+            display: block; width: 100%; height: 300px; object-fit: cover; object-position: center 30%;
+            border-radius: 10px; filter: sepia(0.12);
+        }
+        .tarjeta figcaption { font-size: 0.8em; color: var(--tinta-suave); margin-top: 6px; font-style: italic; }
+        .numero {
+            display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+            width: 38px; height: 38px; border-radius: 50%; margin-right: 10px;
+            background: var(--c); color: #fff; font-family: 'Fraunces', Georgia, serif; font-weight: 800;
+        }
+        .tarjeta h2 {
+            display: flex; align-items: center; margin: 0 0 4px;
+            font-family: 'Fraunces', Georgia, serif; font-size: 1.45em; line-height: 1.2; color: var(--c);
+        }
+        .periodo { margin: 0 0 12px 48px; font-size: 0.9em; color: var(--tinta-suave); }
+        .bloques { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .bloque { padding: 12px 14px; background: var(--f); border-radius: 10px; }
+        .bloque h3 {
+            margin: 0 0 4px; font-size: 0.8em; letter-spacing: 1px; text-transform: uppercase; color: var(--c);
+        }
+        .bloque p { margin: 0; font-size: 0.95em; }
+        .cita { display: block; margin-top: 6px; font-size: 0.78em; font-style: italic; color: var(--tinta-suave); }
+        .bloque.ancho { grid-column: 1 / -1; }
+
+        /* ---------- Referencias ---------- */
+        .ref { padding: 22px 32px 28px; border-top: 1px dashed var(--linea); }
+        .ref h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.25em; margin: 0 0 10px; }
+        .ref h3 { font-size: 1em; margin: 16px 0 6px; }
+        .ref ul { margin: 0; padding: 0; list-style: none; }
+        .ref li { font-size: 0.84em; color: var(--tinta-suave); margin-bottom: 6px; padding-left: 2em; text-indent: -2em; overflow-wrap: anywhere; }
+        .footer { padding: 20px 32px; background: #1d2a38; color: #e6ebf0; font-size: 0.86em; text-align: center; }
+
+        @media (max-width: 760px) {
+            body { padding: 12px 8px 32px; font-size: 16px; }
+            .header { padding: 36px 18px 28px; }
+            .linea-tiempo, .contenido, .ref { padding-left: 14px; padding-right: 14px; }
+            .tarjeta { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+            .tarjeta img { height: 210px; }
+            .bloques { grid-template-columns: 1fr; }
+            .periodo { margin-left: 0; }
+            .tiempo { grid-template-columns: 1fr; gap: 12px; text-align: left; }
+            .tiempo::before { top: 0; bottom: 0; left: 9px; right: auto; width: 3px; height: auto; background: linear-gradient(var(--ocre), var(--rojo), var(--verde)); }
+            .tiempo li { display: flex; gap: 12px; text-align: left; padding: 0; }
+            .tiempo li::before { margin: 0; flex-shrink: 0; }
+            .tiempo b { display: inline; margin-right: 6px; }
+        }
+        @media print {
+            body { background: #fff; padding: 0; }
+            .infografia { box-shadow: none; }
+            .tarjeta { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+<main class="infografia">
+    <header class="header">
+        <span class="etiqueta">Módulo 10 · Actividad integradora 4</span>
+        <h1>Asia, África y Latinoamérica en el siglo XX</h1>
+        <p>Tres procesos que cambiaron el poder en el mundo después de la Segunda Guerra Mundial</p>
+        <div class="datos">
+            <div class="dato"><strong>36 países</strong><span>nuevos en Asia y África (1945-1960)</span></div>
+            <div class="dato"><strong>15 países</strong><span>nacieron al terminar la URSS</span></div>
+            <div class="dato"><strong>4 dictaduras</strong><span>Brasil, Chile, Uruguay y Argentina</span></div>
+        </div>
+    </header>
+
+    <section class="linea-tiempo" aria-label="Fechas clave">
+        <h2>Fechas clave</h2>
+        <ol class="tiempo">
+            <li style="--c: var(--ocre)"><b>1947</b>Independencia de la India</li>
+            <li style="--c: var(--verde)"><b>1964</b>Golpe militar en Brasil</li>
+            <li style="--c: var(--verde)"><b>1973</b>Golpes en Chile y Uruguay</li>
+            <li style="--c: var(--verde)"><b>1976</b>Golpe militar en Argentina</li>
+            <li style="--c: var(--rojo)"><b>1989</b>Cae el muro de Berlín</li>
+            <li style="--c: var(--rojo)"><b>1991</b>Desaparece la URSS</li>
+        </ol>
+    </section>
+
+    <div class="contenido">
+
+        <!-- 1. Descolonización -->
+        <article class="tarjeta t-1">
+            <figure>
+                <img src="Recursos/gandhi-nehru.jpg" alt="Mahatma Gandhi y Jawaharlal Nehru conversando en 1946" style="object-position:center 20%">
+                <figcaption>Gandhi y Nehru, líderes de la independencia de la India, 1946.</figcaption>
+            </figure>
+            <div>
+                <h2><span class="numero">1</span>Descolonización de Asia y África</h2>
+                <p class="periodo">1945-1975 · Las colonias se vuelven países independientes</p>
+                <div class="bloques">
+                    <div class="bloque">
+                        <h3>Causas y contexto</h3>
+                        <p>Las potencias europeas salieron débiles de la Segunda Guerra Mundial. En Asia, los movimientos nacionalistas pidieron la independencia en lugar de volver a ser colonias.</p>
+                        <span class="cita">(Hobsbawm, 1998; Office of the Historian, s. f.-b)</span>
+                    </div>
+                    <div class="bloque">
+                        <h3>Independencias</h3>
+                        <p>Cada país lo logró a su manera: la India, con la resistencia pacífica de Gandhi (1947); Indonesia y Argelia, con guerras largas.</p>
+                        <span class="cita">(Hobsbawm, 1998)</span>
+                    </div>
+                    <div class="bloque ancho">
+                        <h3>Consecuencias políticas y territoriales</h3>
+                        <p>Entre 1945 y 1960 nacieron unos 36 países, casi todos pobres. La ONU pasó de 35 miembros en 1946 a 127 en 1970. Algunos tuvieron gobiernos estables y otros sufrieron dictaduras o guerras civiles.</p>
+                        <span class="cita">(Office of the Historian, s. f.-b)</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. URSS -->
+        <article class="tarjeta t-2">
+            <figure>
+                <img src="Recursos/muro-berlin.jpg" alt="Personas sobre el muro de Berlín frente a la Puerta de Brandeburgo en diciembre de 1989">
+                <figcaption>El muro de Berlín frente a la Puerta de Brandeburgo, diciembre de 1989.</figcaption>
+            </figure>
+            <div>
+                <h2><span class="numero">2</span>Desintegración de la Unión Soviética</h2>
+                <p class="periodo">1985-1991 · Termina la Guerra Fría</p>
+                <div class="bloques">
+                    <div class="bloque">
+                        <h3>Antecedentes de la crisis</h3>
+                        <p>El Estado controlaba toda la economía, pero producía poco de lo que la gente necesitaba. Además, gastaba muchísimo en armas.</p>
+                        <span class="cita">(Hobsbawm, 1998)</span>
+                    </div>
+                    <div class="bloque">
+                        <h3>Reformas de Gorbachov</h3>
+                        <p><b>Perestroika:</b> cambiar la economía. <b>Glásnost:</b> más libertad para opinar e informar. También permitió elecciones con varios partidos.</p>
+                        <span class="cita">(Office of the Historian, s. f.-a, s. f.-c)</span>
+                    </div>
+                    <div class="bloque">
+                        <h3>Caída del muro y disolución</h3>
+                        <p>El 9 de noviembre de 1989 cayó el muro de Berlín. Después, varias repúblicas pidieron su independencia y en diciembre de 1991 la URSS se dividió en 15 países.</p>
+                        <span class="cita">(Office of the Historian, s. f.-c; Hobsbawm, 1998)</span>
+                    </div>
+                    <div class="bloque">
+                        <h3>Consecuencias para el mundo</h3>
+                        <p>Terminó la Guerra Fría y Alemania volvió a unirse. Estados Unidos quedó como la única superpotencia: un mundo unipolar.</p>
+                        <span class="cita">(Office of the Historian, s. f.-c; Hobsbawm, 1998)</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. Dictaduras -->
+        <article class="tarjeta t-3">
+            <figure>
+                <img src="Recursos/la-moneda.jpg" alt="Bombardeo del Palacio de La Moneda en Santiago de Chile el 11 de septiembre de 1973">
+                <figcaption>Bombardeo de La Moneda durante el golpe de Estado en Chile, 11 de septiembre de 1973.</figcaption>
+            </figure>
+            <div>
+                <h2><span class="numero">3</span>Dictaduras militares en América Latina</h2>
+                <p class="periodo">Brasil (1964-1985) · Chile (1973-1990) · Uruguay (1973-1985) · Argentina (1976-1983)</p>
+                <div class="bloques">
+                    <div class="bloque">
+                        <h3>Características comunes</h3>
+                        <p>Llegaron por golpes de Estado. Gobernaban militares, no había elecciones libres, se censuraba la prensa y se perseguía a quienes pensaban diferente.</p>
+                        <span class="cita">(Hobsbawm, 1998)</span>
+                    </div>
+                    <div class="bloque">
+                        <h3>Influencia de la Guerra Fría</h3>
+                        <p>Por miedo al comunismo, Estados Unidos apoyó a gobiernos militares. En 1975, las policías secretas del Cono Sur crearon la Operación Cóndor para perseguir opositores en otros países.</p>
+                        <span class="cita">(Hobsbawm, 1998; National Security Archive, 2025)</span>
+                    </div>
+                    <div class="bloque ancho">
+                        <h3>Consecuencias</h3>
+                        <p>Miles de personas fueron detenidas, torturadas o desaparecidas, y muchas tuvieron que huir del país. Al volver la democracia, los juicios buscaron justicia para las víctimas.</p>
+                        <span class="cita">(National Security Archive, s. f.; National Security Archive, 2025)</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <section class="ref">
+        <h2>Referencias</h2>
+        <ul>
+            <li>Hobsbawm, E. (1998). <em>Historia del siglo XX</em> (J. Faci, J. Ainaud y C. Castells, Trads.). Crítica. (Obra original publicada en 1994)</li>
+            <li>National Security Archive. (s. f.). <em>Southern Cone Documentation Project</em>. The George Washington University. Recuperado el 13 de noviembre de 2026, de https://nsarchive.gwu.edu/project/southern-cone-documentation-project</li>
+            <li>National Security Archive. (2025, 26 de noviembre). <em>Operation Condor: A network of transnational repression 50 years later</em>. The George Washington University. https://nsarchive.gwu.edu/briefing-book/southern-cone/2025-11-26/operation-condor-network-transnational-repression-50-years</li>
+            <li>Office of the Historian. (s. f.-a). <em>The collapse of the Soviet Union</em>. U.S. Department of State. Recuperado el 13 de noviembre de 2026, de https://history.state.gov/milestones/1989-1992/collapse-soviet-union</li>
+            <li>Office of the Historian. (s. f.-b). <em>Decolonization of Asia and Africa, 1945–1960</em>. U.S. Department of State. Recuperado el 13 de noviembre de 2026, de https://history.state.gov/milestones/1945-1952/asia-and-africa</li>
+            <li>Office of the Historian. (s. f.-c). <em>Fall of communism in Eastern Europe, 1989</em>. U.S. Department of State. Recuperado el 13 de noviembre de 2026, de https://history.state.gov/milestones/1989-1992/fall-of-communism</li>
+        </ul>
+        <h3>Imágenes</h3>
+        <ul>
+            <li>Biblioteca del Congreso Nacional de Chile. (1973). <em>Golpe de Estado 1973</em> [Fotografía]. Wikimedia Commons. Licencia CC BY 3.0 CL. https://commons.wikimedia.org/wiki/File:Golpe_de_Estado_1973.jpg</li>
+            <li>Corkran, F. L. (1989). <em>Puerta de Brandeburgo, diciembre de 1989</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:BrandenburgerTorDezember1989.jpg</li>
+            <li>Davis, D. (1946). <em>Gandhi y Nehru en 1946</em> [Fotografía]. Acme Newspictures. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Gandhi_and_Nehru_in_1946.jpg</li>
+        </ul>
+    </section>
+
+    <footer class="footer">Infografía elaborada para el Módulo 10, Transformaciones en el mundo contemporáneo · Semana 2 · Prepa en Línea SEP</footer>
+</main>
+</body>
+</html>
