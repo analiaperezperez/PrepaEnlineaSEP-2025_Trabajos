@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El mundo actual</title>
+<meta name="description" content="Presentación: avances tecnológicos (1970-2000), retos del mundo global y derechos humanos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --oscuro:#12304A; --texto:#1E293B; --suave:#64748B; --claro:#E8F4F2; --teal:#0E9384; --naranja:#E8772E; --azul:#5B8DB8; --papel:#EEF2F1; }
+* { box-sizing:border-box; }
+body { margin:0; padding:24px 16px 48px; background:var(--papel); color:var(--texto); font-family:'Source Sans 3','Segoe UI',sans-serif; font-size:17px; line-height:1.55; }
+.diapositiva { position:relative; max-width:1040px; margin:0 auto 22px; background:#fff; border-radius:18px; padding:34px 40px 40px; box-shadow:0 8px 30px rgba(18,48,74,.10); }
+.num { position:absolute; right:22px; bottom:14px; font-size:.8em; color:var(--suave); }
+h1,h2,h3 { font-family:'Fraunces',Georgia,serif; color:var(--oscuro); line-height:1.15; }
+h2 { font-size:2em; text-align:center; margin:0 0 20px; }
+.portada, .oscura { background:var(--oscuro); color:#fff; overflow:hidden; }
+.portada { padding:56px 40px; min-height:300px; }
+.portada::before, .portada::after { content:""; position:absolute; border-radius:50%; }
+.portada::before { width:340px; height:340px; right:-80px; top:-100px; background:rgba(14,147,132,.35); }
+.portada::after { width:190px; height:190px; right:90px; bottom:-60px; background:rgba(232,119,46,.45); }
+.portada h1 { color:#fff; font-size:clamp(2.4em,6vw,3.4em); margin:12px 0 6px; position:relative; }
+.portada .sub { font-size:1.25em; color:var(--claro); margin:0; position:relative; }
+.etiqueta { color:#F2B134; font-weight:700; letter-spacing:1px; position:relative; }
+.intro { text-align:center; max-width:760px; margin:0 auto 26px; }
+.tiempo { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; text-align:center; position:relative; }
+.tiempo::before { content:""; position:absolute; top:60px; left:16%; right:16%; height:4px; background:var(--claro); }
+.tiempo li { position:relative; display:flex; flex-direction:column; align-items:center; gap:4px; }
+.anio { width:120px; height:120px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Fraunces',Georgia,serif; font-weight:800; font-size:1.5em; border:5px solid #fff; box-shadow:0 4px 14px rgba(0,0,0,.15); margin-bottom:8px; }
+.c0 .anio, .c0 i { background:var(--teal); } .c1 .anio, .c1 i { background:var(--naranja); } .c2 .anio, .c2 i { background:var(--azul); }
+.tiempo b { color:var(--oscuro); font-size:1.1em; }
+.dos { display:grid; grid-template-columns:1fr 1.15fr; gap:32px; align-items:start; }
+.invertida .dos > div:first-child { order:2; }
+figure { margin:0; } figure img { width:100%; height:300px; object-fit:cover; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.15); display:block; }
+.fig-titulo { font-size:.9em; color:var(--oscuro); margin:0 0 6px; }
+.nota { font-size:.75em; color:var(--suave); margin:6px 0 0; overflow-wrap:anywhere; }
+.nota a { color:#0B6B60; }
+.kicker { display:block; color:var(--naranja); font-weight:700; text-transform:uppercase; letter-spacing:1px; font-size:.8em; margin-bottom:8px; }
+.bloque h4 { margin:10px 0 2px; color:var(--teal); font-size:1.05em; }
+.bloque p { margin:0; }
+.cita { font-size:.8em; font-style:italic; color:var(--suave); margin:14px 0 0; }
+.dato { background:var(--claro); border-radius:12px; padding:12px 16px; display:flex; gap:14px; align-items:center; margin-top:14px; }
+.dato b { font-family:'Fraunces',Georgia,serif; font-size:1.9em; color:var(--naranja); white-space:nowrap; }
+.datos { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.datos .dato { flex-direction:column; gap:0; text-align:center; } .datos .c0 b { color:var(--teal); }
+.derechos { display:grid; grid-template-columns:.8fr 1fr 1fr; gap:18px; }
+.derechos figure img { height:340px; object-position:center 20%; }
+.tarjeta { background:var(--claro); border-radius:14px; padding:18px; }
+.tarjeta h3 { margin:8px 0 2px; font-size:1.25em; }
+.reto { display:flex; align-items:center; gap:10px; font-size:.75em; font-weight:700; text-transform:uppercase; color:var(--teal); }
+.c1 .reto { color:var(--naranja); }
+.reto i, .acciones i { font-style:normal; width:32px; height:32px; border-radius:50%; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-family:'Fraunces',Georgia,serif; font-weight:800; flex-shrink:0; }
+.base { font-style:italic; color:#0B6B60; font-size:.85em; margin:0 0 6px; }
+.tarjeta p { margin:0 0 6px; }
+.oscura h2 { color:#fff; text-align:left; }
+.oscura p { color:var(--claro); }
+.acciones { list-style:none; padding:0; margin:0; display:grid; gap:12px; }
+.acciones li { background:#fff; color:var(--texto); border-radius:12px; padding:14px 16px; display:flex; align-items:center; gap:14px; }
+.incisos { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.incisos li { background:var(--claro); border-radius:14px; padding:18px; display:flex; gap:16px; align-items:center; }
+.incisos i { font-style:normal; width:52px; height:52px; border-radius:50%; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-family:'Fraunces',Georgia,serif; font-weight:800; font-size:1.3em; flex-shrink:0; }
+.incisos .c3 i { background:var(--oscuro); }
+.incisos b { display:block; font-family:'Fraunces',Georgia,serif; color:var(--oscuro); font-size:1.15em; }
+.refs ul { padding:0; list-style:none; } .refs li { font-size:.85em; margin-bottom:8px; padding-left:2em; text-indent:-2em; overflow-wrap:anywhere; }
+.refs h3 { font-size:1.1em; margin:18px 0 6px; } .refs h2 { text-align:left; }
+@media (max-width:760px) {
+  body { padding:12px 8px 32px; font-size:16px; }
+  .diapositiva { padding:24px 18px 34px; }
+  h2 { font-size:1.55em; }
+  .dos, .derechos { grid-template-columns:1fr; gap:18px; }
+  .invertida .dos > div:first-child { order:0; }
+  .incisos { grid-template-columns:1fr; }
+  .tiempo { grid-template-columns:1fr; } .tiempo::before { display:none; }
+  figure img { height:220px; } .derechos figure img { height:260px; }
+}
+@media print { body { background:#fff; } .diapositiva { box-shadow:none; break-inside:avoid; } }
+</style>
+</head>
+<body>
+<section class="diapositiva portada"><span class="num">1</span>
+    <span class="etiqueta">Módulo 10 · Actividad integradora 6</span>
+    <h1>El mundo actual</h1>
+    <p class="sub">La tecnología, los retos de hoy y los derechos humanos</p></section>
+<section class="diapositiva "><span class="num">2</span>
+    <h2>Contenido</h2>
+    <ol class="incisos"><li class="c0"><i>a)</i><div><b>Avances tecnológicos</b><span>Tres inventos de 1970 a 2000 que cambiaron nuestra vida</span></div></li><li class="c1"><i>b)</i><div><b>Retos del mundo global</b><span>Dos problemas que trajo un mundo tan conectado</span></div></li><li class="c2"><i>c)</i><div><b>Derechos humanos en el contexto actual</b><span>Dos derechos que nos ayudan con esos problemas</span></div></li><li class="c3"><i>d)</i><div><b>Conclusión</b><span>Lo que aprendí y qué podemos hacer</span></div></li></ol></section>
+<section class="diapositiva "><span class="num">3</span>
+    <h2>a) Avances tecnológicos (1970-2000)</h2>
+    <p class="intro">Entre 1970 y 2000 aparecieron inventos que cambiaron la forma en que nos comunicamos, estudiamos y trabajamos.</p>
+    <ol class="tiempo"><li class="c0"><span class="anio">1971</span><b>Correo electrónico</b><span>Mensajes que llegan en segundos</span></li><li class="c1"><span class="anio">Años 80</span><b>Computadora portátil</b><span>Una computadora que puedes llevar</span></li><li class="c2"><span class="anio">1990</span><b>World Wide Web</b><span>Las páginas de internet</span></li></ol>
+    <p class="cita">(Prepa en Línea-SEP [PL-SEP], s.f.; CERN, s.f.)</p></section>
+<section class="diapositiva "><span class="num">4</span>
+    <h2>Correo electrónico</h2>
+    <div class="dos">
+        <div><figure><figcaption class="fig-titulo"><b>Figura 1.</b> <em>Computadoras de la empresa BBN</em></figcaption><img src="Recursos/correo-bbn.jpg" alt="Computadoras de la empresa BBN" loading="lazy"><p class="nota"><em>Nota.</em> En esta empresa de Estados Unidos se envió el primer correo electrónico. Retomada de Reseletti (ca. 1970). <a href="https://commons.wikimedia.org/wiki/File:Timesharing_and_Development_KA-10s_at_BBN,_circa_1970.jpg" target="_blank" rel="noopener">https://commons.wikimedia.org/wiki/File:Timesharing_and_Development_KA-10s_at_BBN,_circa_1970.jpg</a></p></figure></div>
+        <div><span class="kicker">a) Avance 1 · 1971</span><div class="bloque"><h4>¿Qué es?</h4><p>Es una forma de mandar mensajes escritos de una computadora a otra. El primer correo se envió en 1971 (ver Figura 1).</p></div><div class="bloque"><h4>¿Cómo transformó la vida diaria?</h4><p>Antes una carta tardaba días en llegar. Con el correo electrónico llega en segundos y gratis. Hoy lo usamos para la escuela, el trabajo y para abrir cuentas en casi cualquier página.</p></div><p class="cita">(PL-SEP, s.f.)</p></div>
+    </div></section>
+<section class="diapositiva invertida"><span class="num">5</span>
+    <h2>Computadora portátil</h2>
+    <div class="dos">
+        <div><figure><figcaption class="fig-titulo"><b>Figura 2.</b> <em>Adam Osborne y la Osborne 1</em></figcaption><img src="Recursos/osborne.jpg" alt="Adam Osborne y la Osborne 1" loading="lazy"><p class="nota"><em>Nota.</em> La primera computadora portátil, en 1981. Retomada de Crouch (1981). <a href="https://commons.wikimedia.org/wiki/File:Adam_Osborne_and_Osborne_1.jpg" target="_blank" rel="noopener">https://commons.wikimedia.org/wiki/File:Adam_Osborne_and_Osborne_1.jpg</a></p></figure></div>
+        <div><span class="kicker">a) Avance 2 · Principios de los años 80</span><div class="bloque"><h4>¿Qué es?</h4><p>Es una computadora que puedes cargar y usar en cualquier lugar. La primera fue la Osborne, que ya traía la pantalla y el teclado juntos (ver Figura 2).</p></div><div class="bloque"><h4>¿Cómo transformó la vida diaria?</h4><p>Gracias a ella se puede estudiar y trabajar desde casa o desde cualquier lugar. Hoy las laptops y tabletas son muy comunes: en México, 36.6 % de las personas usa computadora.</p></div><p class="cita">(PL-SEP, s.f.; Instituto Nacional de Estadística y Geografía [INEGI], 2025)</p></div>
+    </div></section>
+<section class="diapositiva "><span class="num">6</span>
+    <h2>World Wide Web</h2>
+    <div class="dos">
+        <div><figure><figcaption class="fig-titulo"><b>Figura 3.</b> <em>La primera computadora de páginas web</em></figcaption><img src="Recursos/servidor-web.jpg" alt="La primera computadora de páginas web" loading="lazy"><p class="nota"><em>Nota.</em> Guardó las primeras páginas web, en el CERN (Suiza). Retomada de Coolcaesar (2005), licencia CC BY-SA 3.0. <a href="https://commons.wikimedia.org/wiki/File:First_Web_Server.jpg" target="_blank" rel="noopener">https://commons.wikimedia.org/wiki/File:First_Web_Server.jpg</a></p></figure><div class="dato"><b>83.1 %</b><span>de las personas en México usó internet en 2024</span></div></div>
+        <div><span class="kicker">a) Avance 3 · 1990</span><div class="bloque"><h4>¿Qué es?</h4><p>Son las páginas de internet que visitamos y que se unen entre sí con ligas. La primera página web se hizo en un centro de investigación de Suiza, el CERN, y empezó a funcionar en 1990 (ver Figura 3).</p></div><div class="bloque"><h4>¿Cómo transformó la vida diaria?</h4><p>Ahora cualquier persona puede buscar información, estudiar o comprar sin salir de casa. Por ejemplo, Prepa en Línea-SEP existe gracias a internet.</p></div><p class="cita">(CERN, s.f.; PL-SEP, s.f.; INEGI, 2025)</p></div>
+    </div></section>
+<section class="diapositiva invertida"><span class="num">7</span>
+    <h2>Brecha digital</h2>
+    <div class="dos">
+        <div><figure><figcaption class="fig-titulo"><b>Figura 4.</b> <em>Niños aprendiendo a usar computadoras</em></figcaption><img src="Recursos/brecha-digital.jpg" alt="Niños aprendiendo a usar computadoras" loading="lazy"><p class="nota"><em>Nota.</em> Escuela en Zambia, África. Retomada de Peace Corps (2007). <a href="https://commons.wikimedia.org/wiki/File:Zambian_kids_learning_how_to_use_computers.jpg" target="_blank" rel="noopener">https://commons.wikimedia.org/wiki/File:Zambian_kids_learning_how_to_use_computers.jpg</a></p></figure></div>
+        <div><span class="kicker">b) Retos del mundo global · Reto 1</span><div class="bloque"><h4>¿Qué es?</h4><p>Es la diferencia entre las personas que tienen internet y saben usarlo, y las que no (ver Figura 4).</p></div>
+        <div class="datos"><div class="dato c0"><b>86.9 %</b><span>de las personas en las ciudades usó internet</span></div><div class="dato c1"><b>68.5 %</b><span>de las personas en el campo usó internet</span></div></div>
+        <div class="bloque"><h4>¿Por qué es un reto?</h4><p>Hoy muchas clases, trámites y trabajos están en internet. Quien no tiene acceso se queda atrás, y la diferencia entre ricos y pobres se hace más grande.</p></div><p class="cita">(INEGI, 2025)</p></div>
+    </div></section>
+<section class="diapositiva "><span class="num">8</span>
+    <h2>Desinformación y noticias falsas</h2>
+    <div class="dos">
+        <div><figure><figcaption class="fig-titulo"><b>Figura 5.</b> <em>Noticias falsas en el periódico</em></figcaption><img src="Recursos/noticias-falsas.jpg" alt="Noticias falsas en el periódico" loading="lazy"><p class="nota"><em>Nota.</em> Retomada de Journolink (2019), licencia CC BY 2.0. <a href="https://commons.wikimedia.org/wiki/File:Fake_News_Spelled_Out_In_Newspaper.jpg" target="_blank" rel="noopener">https://commons.wikimedia.org/wiki/File:Fake_News_Spelled_Out_In_Newspaper.jpg</a></p></figure></div>
+        <div><span class="kicker">b) Retos del mundo global · Reto 2</span><div class="bloque"><h4>¿Qué es?</h4><p>Es información falsa que alguien comparte a propósito para engañar. No es un error: quien la inventa quiere hacer daño (ver Figura 5).</p></div>
+        
+        <div class="bloque"><h4>¿Por qué es un reto?</h4><p>En las redes sociales una noticia falsa llega a miles de personas en minutos. Puede confundirnos y hacer que nos peleemos, como pasó con las mentiras sobre la salud durante la pandemia de COVID-19.</p></div><p class="cita">(Naciones Unidas, s.f.-a)</p></div>
+    </div></section>
+<section class="diapositiva "><span class="num">9</span>
+    <h2>c) Derechos humanos en el contexto actual</h2>
+    <div class="derechos">
+        <div><figure><figcaption class="fig-titulo"><b>Figura 6.</b> <em>Eleanor Roosevelt y la Declaración Universal</em></figcaption><img src="Recursos/derechos-humanos.jpg" alt="Eleanor Roosevelt y la Declaración Universal" loading="lazy"><p class="nota"><em>Nota.</em> La Declaración Universal de los Derechos Humanos en español, 1949. Retomada de Braun (1949). <a href="https://commons.wikimedia.org/wiki/File:Eleanor_Roosevelt_and_United_Nations_Universal_Declaration_of_Human_Rights_in_Spanish_09-2456M_original.jpg" target="_blank" rel="noopener">https://commons.wikimedia.org/wiki/File:Eleanor_Roosevelt_and_United_Nations_Universal_Declaration_of_Human_Rights_in_Spanish_09-2456M_original.jpg</a></p></figure></div>
+        <div class="tarjeta c0"><span class="reto"><i>1</i>Frente a la desinformación</span><h3>Libertad de opinión y de expresión</h3><p class="base">Artículo 19 · Declaración Universal</p><p>Todos podemos buscar, recibir y compartir información. Así nos informamos en fuentes confiables y decimos lo que pensamos. Ayuda a la libertad y a convivir con respeto en una sociedad con muchas culturas.</p><p class="cita">(Naciones Unidas, s.f.-b)</p></div><div class="tarjeta c1"><span class="reto"><i>2</i>Frente a la brecha digital</span><h3>Educación y acceso a internet</h3><p class="base">Art. 26 · Declaración Universal  |  Art. 6 · Constitución</p><p>Todos tenemos derecho a estudiar, y el gobierno debe asegurar internet para todos. Así tenemos las mismas oportunidades, sin importar de dónde somos o dónde vivimos. Ayuda a la igualdad y a la justicia.</p><p class="cita">(Naciones Unidas, s.f.-b; Constitución Política de los Estados Unidos Mexicanos, 2026)</p></div>
+    </div></section>
+<section class="diapositiva oscura"><span class="num">10</span>
+    <h2>d) Conclusión</h2>
+    <div class="dos">
+        <div><p>La tecnología nos ayuda a usar nuestros derechos: gracias a internet podemos estudiar, informarnos y decir lo que pensamos. Pero si no llega a todos, unos se quedan atrás, y si se usa para engañar, nos quita la libertad de pensar por nosotros mismos.</p><p>Por eso creo que es importante hacer cosas sencillas para tener una sociedad más justa, donde todos quepan y todos opinen:</p></div>
+        <ol class="acciones"><li class="c0"><i>1</i>Revisar la fuente antes de compartir una noticia.</li><li class="c1"><i>2</i>Llevar internet al campo y enseñar a usarlo.</li><li class="c2"><i>3</i>Respetar las opiniones de los demás, aunque sean diferentes a las nuestras.</li></ol>
+    </div></section>
+<section class="diapositiva refs"><span class="num">11</span>
+    <h2>Referencias</h2>
+    <ul><li>Braun Christoph. (1949, noviembre). <em>Eleanor Roosevelt and United Nations Universal Declaration of Human Rights in Spanish</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Eleanor_Roosevelt_and_United_Nations_Universal_Declaration_of_Human_Rights_in_Spanish_09-2456M_original.jpg</li><li>CERN. (s.f.). <em>Home of the first website</em>. http://info.cern.ch/</li><li>Constitución Política de los Estados Unidos Mexicanos. (2026, 7 de octubre). Artículo 6. México. https://www.diputados.gob.mx/LeyesBiblio/pdf/CPEUM.pdf</li><li>Coolcaesar. (2005, 10 de agosto). <em>First Web Server</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:First_Web_Server.jpg</li><li>Crouch Bill. (1981, 1 de abril). <em>Adam Osborne and Osborne 1</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Adam_Osborne_and_Osborne_1.jpg</li><li>Instituto Nacional de Estadística y Geografía. (2025, 6 de mayo). <em>Encuesta Nacional sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares (ENDUTIH) 2024</em> [Comunicado de prensa 57/25]. https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/endutih/ENDUTIH_24.pdf</li><li>Journolink. (2019, 4 de abril). <em>Fake News Spelled Out In Newspaper</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Fake_News_Spelled_Out_In_Newspaper.jpg</li><li>Naciones Unidas. (s.f.-a). <em>Contrarrestar la desinformación</em>. https://www.un.org/es/countering-disinformation</li><li>Naciones Unidas. (s.f.-b). <em>La Declaración Universal de los Derechos Humanos</em>. https://www.un.org/es/about-us/universal-declaration-of-human-rights</li><li>Peace Corps. (2007, 19 de febrero). <em>Zambian kids learning how to use computers</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Zambian_kids_learning_how_to_use_computers.jpg</li><li>Prepa en Línea-SEP. (s.f.). <em>Avances tecnológicos actuales</em>. Módulo 10. Transformaciones en el mundo contemporáneo. Plataforma de aprendizaje.</li><li>Reseletti. (ca. 1970). <em>Timesharing and Development KA-10s at BBN</em> [Fotografía]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Timesharing_and_Development_KA-10s_at_BBN,_circa_1970.jpg</li></ul></section>
+</body>
+</html>
